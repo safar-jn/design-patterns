@@ -1,20 +1,17 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+about: Suggest a new design pattern for this project
+title: TITLE
+labels: feature
+assignees: safar-jn
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Design pattern**
+Name of a design pattern, you'd like to be added.
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Usage**
+A clear description of where the pattern could be used in given prototype.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**Additional description**
+Elaborate on how the pattern works or provide some other sources, which describe it.
