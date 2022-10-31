@@ -9,24 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      design-patterns-list: ${{ steps.set-list.outputs.list }}
+      design-patterns: ${{ steps.set-list.outputs.list }}
 
     steps:
       - name: Checknout most recent commit
         uses: actions/checkout@v3
 
-      - name: Set matrix with list of design patterns
+      - name: Create list with design pattern folders
         id: set-list
-        run: |
-          list="[$(ls -m -Q -d */)]"
-          echo "::set-output name=list::$list"
+        run: echo "list=[$(ls -m -Q -d */)]" >> $GITHUB_OUTPUT
 
   compile-all:
     needs: collect-design-patterns
 
     strategy:
       matrix:
-        design-patterns: ${{ needs.collect-design-patterns.outputs.design-patterns-list }}
+        design-patterns: ${{ fromJSON(needs.collect-design-patterns.outputs.design-patterns) }}
 
     uses: safar-jn/design-patterns/.github/workflows/compile.yml@master
     with:
