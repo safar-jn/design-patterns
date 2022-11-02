@@ -1,10 +1,8 @@
 # DESIGN PATTERNS
 
----
-
 This project aims to educate junior developers in one fairly useful portion of application design, i.e. **design patterns**.
 It describes a context of fictional software [prototype](#prototype), within which individual patterns are explained.
-All examples then stand completely independent of the others, but still reflect concrete parts of the prototype. 
+All examples then stand completely independent of each other, but still reflect particular parts of the prototype. 
 
 **CREATIONAL**
 - [pattertn_template](./pattern_template)
@@ -21,8 +19,6 @@ All examples then stand completely independent of the others, but still reflect 
 ---
 
 # PROTOTYPE
-
----
 
 [TODO] generic description of what, why and how
 
