@@ -29,3 +29,12 @@ jobs:
     uses: safar-jn/design-patterns/.github/workflows/compile.yml@master
     with:
       path: ${{ matrix.design-patterns }}
+
+  compile-all-success:
+    needs: compile-all
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wait for compile-all success
+        run: echo "completed"
