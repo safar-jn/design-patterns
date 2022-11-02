@@ -2,11 +2,21 @@
 
 ---
 
-[TODO] generic description of what this repo is
+This project aims to educate junior developers in one fairly useful portion of application design, i.e. **design patterns**.
+It describes a context of fictional software [prototype](#prototype), within which individual patterns are explained.
+All examples then stand completely independent of the others, but still reflect concrete parts of the prototype. 
 
-[TODO] explain how all examples of design patterns are within the context of following prototype
+**CREATIONAL**
+- [pattertn_template](./pattern_template)
 
-[TODO] list of hyperlinks to each design pattern
+**STRUCTURAL**
+- [pattertn_template](./pattern_template)
+
+**BEHAVIORAL**
+- [pattertn_template](./pattern_template)
+
+**CONCURRENT**
+- [pattertn_template](./pattern_template)
 
 ---
 
