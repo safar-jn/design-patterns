@@ -1,0 +1,40 @@
+name: Pull Request checks
+
+on:
+  pull_request:
+    branches: master
+
+jobs:
+  collect-design-patterns:
+    runs-on: ubuntu-latest
+
+    outputs:
+      design-patterns: ${{ steps.set-list.outputs.list }}
+
+    steps:
+      - name: Checknout most recent commit
+        uses: actions/checkout@v3
+
+      - name: Create list with design pattern folders
+        id: set-list
+        run: echo "list=[$(ls -m -Q -d */)]" >> $GITHUB_OUTPUT
+
+  compile-all:
+    needs: collect-design-patterns
+
+    strategy:
+      matrix:
+        design-patterns: ${{ fromJSON(needs.collect-design-patterns.outputs.design-patterns) }}
+
+    uses: safar-jn/design-patterns/.github/workflows/compile.yml@master
+    with:
+      path: ${{ matrix.design-patterns }}
+
+  compile-all-success:
+    needs: compile-all
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wait for compile-all success
+        run: echo "completed"
