@@ -1,0 +1,19 @@
+name: Compile
+
+on:
+  workflow_call:
+    inputs:
+      path:
+        required: true
+        type: string
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checknout most recent commit
+        uses: actions/checkout@v3
+
+      - name: Compile "${{ inputs.path }}"
+        run: g++ ${{ inputs.path }}/*.cpp ${{ inputs.path }}/src/*.cpp -o a.out
