@@ -1,8 +1,9 @@
 # DESIGN PATTERNS
 
-This project aims to educate junior developers in one fairly useful portion of application design, i.e. **design patterns**.
-It describes a context of fictional software [prototype](#prototype) within which individual patterns are explained.
-All examples then stand completely independent of each other but still reflect particular parts of the prototype. 
+This project aspires to educate junior developers in one fairly useful portion of application design, i.e. 
+**design patterns**. It describes a context of fictional software [prototype](#prototype) within which individual 
+patterns are explained. All examples then stand completely independent of each other but still reflect particular 
+parts of the prototype. 
 
 **CREATIONAL**
 - [pattertn_template](./pattern_template)
@@ -29,13 +30,12 @@ which are then used as indicators of ones repayment capacity.
 
 #### GENERAL
 
-Our prototype shall be an application, which is part of a so called "scoring process" of a client,
-that's triggered with each loan request. This app's main purpose is to scrape public data about said client
-and based on them calculate probability about how probable it is that the client in question won't
-be able to make payments (i.e. he will bankrupt or smthing).
-NOTE that in real-world examples such application/probablity is only one of dozens such indicators
-and because of it using mainly public data, actually doestn hold such a high importance in the
-grand scheme of things.
+Our prototype shall be an app, which is a part of a so-called "scoring process", that is triggered with each loan request.
+Main purpose of this app will be scraping client's public data and based on them calculating a score (i.e. probability), 
+that exhibits client's repayment ability.
+
+NOTE: In real-world examples, such a score would be only one of dozens different indicators, and thanks to its nature 
+and reliance on public information, it wouldn't really hold such a high importance in the grand scheme of things.
 
 ### ARCHITECTURE
 
