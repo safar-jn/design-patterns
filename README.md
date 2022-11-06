@@ -41,21 +41,23 @@ and reliance on public information, it wouldn't really hold such a high importan
 
 ![prototype-architecture](./prototype-architecture.svg)
 
-[TODO] high-level description of individual components
+The prototype is designed using microservice architecture mainly 'cause of its extremely high fault tolerance and 
+exceptionally fast DRs (Disaster Recovery). Besides all that, this architecture is also highly scalable and excels in 
+"on the fly" version releases with almost zero downtime. 
 
-App is designed using microservice architecure beacause of its importance it has to have extremely high fault tolerance
-and fast DRs (disaster recovery). Besides all that this type of an architecture provides high scalability and almost
-zero downtime during releases of new versions.
+There are 4 main services:
 
-- **REQUEST HANDLER** is a microservice responsible for handling communication with other systems (exposes API)
-- **SCRAPER** is microservice responsible for crawling through a set of websites and downloading all relevant info about given client
-- **TRANSFORMER** is a microservice responsible for going through scraped data and assigning individual values some numerical counterparts
-- **MODELER** is a microservice responsible for calculating final score usign some mathematical (statistical) models
+- **REQUEST HANDLER** is a service responsible for handling communication with other systems (exposes API for requests)
+- **SCRAPER** is a service responsible for crawling through a set of websites and collecting relevant info about given client
+- **TRANSFORMER** is a service responsible for going through the scraped data and transforming them into numerical values
+- **MODELER** is a service responsible for fitting the transformed data into some statistical model and running calculations
 
-Besides these components app has an internal **database** used for storing final results and is connected to an external
-**datawarehouse** where it logs every last piece of scraped information for audit purposes.
+Besides these services, the app has an internal **database** used for storing final results and is connected to an 
+external **data warehouse** where it logs every last piece of scraped information for audit purposes.
 
 ### DATA FLOW
+
+[TODO] rewrite
 
 App accepts new request in request handler service and checks whether there is already recently
 calculated score for given client in DB. If yes it returns it otherwise it creates in-progress
@@ -67,7 +69,7 @@ which stores it in the DB and returns it to the original client.
 
 ### THIRD-PARTY COMPONENTS 
 
-These platforms are merely meant to be used as examples and can be swapped out for others that provide the same functions.
+Following platforms are merely used as examples and can be swapped out for others with analogical functions.
 
 - **OpenShift** Container Platform is RedHat's on-premise cloud for hosting application, built around Linux containers orchestrated by Kubernetes.
 - **Kafka** is a distributed event streaming platform by Apache, used mainly as a high-performance data pipeline.
