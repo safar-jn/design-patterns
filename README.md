@@ -57,19 +57,17 @@ external **data warehouse** where it logs every last piece of scraped informatio
 
 ### DATA FLOW
 
-[TODO] rewrite
-
-App accepts new request in request handler service and checks whether there is already recently
-calculated score for given client in DB. If yes it returns it otherwise it creates in-progress
-entry in the DB and sends the request along to scraper which is then responsible for searching 
-the web and finding public data. Everything it finds is then passed along to transformer which 
-transforms the data into numerical values which are then passed to modeler which uses them to 
-calculate some final score using statistic models. This score is finally returned to req handler 
-which stores it in the DB and returns it to the original client.
+In the beginning **request handler** accepts new scoring request and checks the internal DB for previously cached results.
+If it finds a relevant entry than it just returns it, otherwise it passes the request along to the **scraper** and waits.
+When the request reaches the **scraper**, it starts collecting various information from the web, which is then sent to
+the **transformer**. The **transformer** then takes the scraped data and assigns individual data points certain numerical
+values. Lastly, the transformed data are passed to the **modeler**, which plugs it into a particular statistical model 
+and calculates a final score. This singular value is then returned to the **request handler**, who stores it in the 
+internal database and returns it to the system which originally requested it.
 
 ### THIRD-PARTY COMPONENTS 
 
-Following platforms are merely used as examples and can be swapped out for others with analogical functions.
+Following platforms are merely used as examples and can be swapped out for others with analogical functionality.
 
 - **OpenShift** Container Platform is RedHat's on-premise cloud for hosting application, built around Linux containers orchestrated by Kubernetes.
 - **Kafka** is a distributed event streaming platform by Apache, used mainly as a high-performance data pipeline.
