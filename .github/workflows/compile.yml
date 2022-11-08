@@ -18,5 +18,5 @@ jobs:
       - name: Compile "${{ inputs.path }}"
         run: find ${{ inputs.path }} -name "*.cpp" -exec g++ -std=c++17 -Wall -pedantic {} +
 
-      - name: Run
+      - name: Valgrind check
         run: valgrind --leak-check=full --error-exitcode=1 ./a.out
