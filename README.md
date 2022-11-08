@@ -7,6 +7,7 @@ parts of the prototype.
 
 **CREATIONAL**
 - [Abstract Factory](./AbstractFactory)
+- [Builder](./Builder)
 
 **STRUCTURAL**
 - [pattertn_template](./pattern_template)
