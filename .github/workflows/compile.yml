@@ -16,4 +16,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Compile "${{ inputs.path }}"
-        run: find ${{ inputs.path }} -name "*.cpp" -exec g++ {} +
+        run: find ${{ inputs.path }} -name "*.cpp" -exec g++ -std=c++17 -Wall -pedantic {} +
+
+      - name: Valgrind check
+        run: valgrind --leak-check=full --error-exitcode=1 ./a.out

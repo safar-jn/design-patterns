@@ -6,7 +6,7 @@ patterns are explained. All examples then stand completely independent of each o
 parts of the prototype. 
 
 **CREATIONAL**
-- [pattertn_template](./pattern_template)
+- [Abstract Factory](./AbstractFactory)
 
 **STRUCTURAL**
 - [pattertn_template](./pattern_template)

@@ -34,3 +34,4 @@
 # Local testing
 CMakeLists.txt
 cmake-build-debug
+cmake-build-debug-wsl
