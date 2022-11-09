@@ -10,13 +10,13 @@ parts of the prototype.
 - [Builder](./Builder)
 
 **STRUCTURAL**
-- [pattertn_template](./pattern_template)
+- ...
 
 **BEHAVIORAL**
-- [pattertn_template](./pattern_template)
+- ...
 
 **CONCURRENT**
-- [pattertn_template](./pattern_template)
+- ...
 
 ---
 
