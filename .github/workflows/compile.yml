@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checknout most recent commit
         uses: actions/checkout@v3
+        
+      - name: Install valgrind
+        run: sudo apt install valgrind
 
       - name: Compile "${{ inputs.path }}"
         run: find ${{ inputs.path }} -name "*.cpp" -exec g++ -std=c++17 -Wall -pedantic {} +
