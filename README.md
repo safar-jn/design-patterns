@@ -8,6 +8,7 @@ parts of the prototype.
 **CREATIONAL**
 - [Abstract Factory](./AbstractFactory)
 - [Builder](./Builder)
+- [Factory Method](./FactoryMethod)
 
 **STRUCTURAL**
 - ...
