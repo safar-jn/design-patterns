@@ -7,12 +7,12 @@ std::ostream & operator << (std::ostream & os, const DataProfile & dp)
 		<< "\tname: " << dp._name << "\n"
 		<< "\tsurname: " << dp._surname << "\n"
 		<< "\tbirthYear: " << dp._birth_year << "\n"
-		<< "\tgoogleRatings: [";
+		<< "\tgoogleRatings: ";
 
 	for (float rating : dp._google_ratings)
 		os << rating << ", ";
 
-	os << "]" << std::endl;
+	os << std::endl;
 
 	return os;
 }
