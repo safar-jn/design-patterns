@@ -1,5 +1,7 @@
 #include "DataProfileBuilder.h"
 
+#include <iostream>
+
 
 DataProfileBuilder::DataProfileBuilder (): _result(std::make_shared<DataProfile>())
 {}
@@ -30,6 +32,12 @@ DataProfileBuilder & DataProfileBuilder::setBirthYear (uint16_t birthYear)
 
 DataProfileBuilder & DataProfileBuilder::addGoogleRating (float rating)
 {
+	if (rating < 0.0 || rating > 5.0)
+	{
+		std::cerr << ">> rating not added - must be in range <0.0;5.0>" << std::endl;
+		return *this;
+	}
+
 	_result->_google_ratings.push_back(rating);
 	return *this;
 }

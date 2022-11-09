@@ -7,6 +7,8 @@
 
 int main(int argc, char **argv)
 {
+	// example of client code which uses Builder pattern
+
 	DataProfileBuilder builder;
 	std::shared_ptr<DataProfile> result;
 
@@ -20,12 +22,14 @@ int main(int argc, char **argv)
 				.construct();
 
 	std::cout << *result;
+	std::cout << "---" << std::endl;
 
 	result = builder
 				.reset()
 				.setName("Jane")
 				.setSurname("Doe")
 				.setBirthYear(2005)
+				.addGoogleRating(5.1)
 				.construct();
 
 	std::cout << *result;
