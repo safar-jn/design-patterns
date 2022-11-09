@@ -8,16 +8,16 @@
 
 class DataProfileBuilder
 {
-	public:
-		DataProfileBuilder();
-		DataProfileBuilder & 			reset			();
-		DataProfileBuilder & 			setName			(const std::string & name);
-		DataProfileBuilder & 			setSurname		(const std::string & surname);
-		DataProfileBuilder & 			setBirthYear	(uint16_t birthYear);
-		DataProfileBuilder & 			addGoogleRating	(float rating);
-		std::shared_ptr<DataProfile>	construct		();
-	private:
-		std::shared_ptr<DataProfile> _result;
+    public:
+        DataProfileBuilder();
+        DataProfileBuilder &            reset();
+        DataProfileBuilder &            setName(const std::string &name);
+        DataProfileBuilder &            setSurname(const std::string &surname);
+        DataProfileBuilder &            setBirthYear(uint16_t birthYear);
+        DataProfileBuilder &            addGoogleRating(float rating);
+        std::shared_ptr<DataProfile>    construct();
+    private:
+        std::shared_ptr<DataProfile> _result;
 };
 
 

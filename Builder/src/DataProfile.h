@@ -8,15 +8,15 @@
 
 class DataProfile
 {
-	private:
-		friend class DataProfileBuilder;
-		friend std::ostream & operator << (std::ostream & os, const DataProfile & dp);
+    private:
+        friend class DataProfileBuilder;
+        friend std::ostream & operator << (std::ostream & os, const DataProfile & dp);
 
-		std::string 		_name;
-		std::string 		_surname;
-		uint16_t 			_birth_year;
-		std::vector<float> 	_google_ratings;
-		// ...
+        std::string         _name;
+        std::string         _surname;
+        uint16_t            _birth_year;
+        std::vector<float>  _google_ratings;
+        // ...
 };
 
 
