@@ -12,6 +12,7 @@
 ![singleton](Singleton.svg)
 
 TL;DR behaviour - [TODO]
+
 #### EXAMPLE
 
 [TODO] database connection
