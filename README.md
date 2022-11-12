@@ -9,6 +9,7 @@ parts of the prototype.
 - [Abstract Factory](./AbstractFactory)
 - [Builder](./Builder)
 - [Factory Method](./FactoryMethod)
+- [Lazy Load](./LazyLoad)
 
 **STRUCTURAL**
 - ...
