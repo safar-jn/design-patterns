@@ -8,16 +8,15 @@
 class DatabaseConnection
 {
     public:
-        DatabaseConnection(DatabaseConnection &other) = delete; // forbid cloning
-        void operator = (const DatabaseConnection &) = delete; // forbid assigning
-
         static std::shared_ptr<DatabaseConnection> getInstance (const std::string &uri,
                                                                 const std::string &usr,
                                                                 const std::string &pwd);
-        bool execute(const std::string &query) const;
+        bool execute (const std::string &query) const;
 
     protected:
-        DatabaseConnection(const std::string &uri, const std::string &usr, const std::string &pwd);
+        DatabaseConnection  (const std::string &uri, const std::string &usr, const std::string &pwd);
+        DatabaseConnection  (DatabaseConnection &other) = delete; // forbid cloning
+        void operator =     (const DatabaseConnection &) = delete; // forbid assigning
 
         static std::shared_ptr<DatabaseConnection> _instance;
         static std::mutex _mutex;

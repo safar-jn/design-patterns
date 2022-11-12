@@ -14,7 +14,7 @@ std::shared_ptr<DatabaseConnection> DatabaseConnection::getInstance (const std::
                                                                      const std::string &usr,
                                                                      const std::string &pwd)
 {
-    std::lock_guard<std::mutex> lock(DatabaseConnection::_mutex);
+    std::scoped_lock<std::mutex> lock(DatabaseConnection::_mutex);
 
     if (!_instance)
         _instance.reset(new DatabaseConnection(uri, usr, pwd));
