@@ -1,20 +1,33 @@
-#include <iostream>
+#include "src/DWHConnection.h"
 
-#include "src/Crawler.h"
+#include <thread>
 
 
-void run_crawler(const std::string &website, bool log = false)
+void simulate_crawler_execution()
 {
-    Crawler c(website, log);
-    c.start();
+    /// simulate web crawler saving individual websites it goes through to DWH
+    DWHConnection conn("localhost:8080", "admin", "1234");
+
+    // simulate failed request (i.e. nothing to save) == conn won't be established (i.e. DummyConnector not initialized)
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    conn.save("");
+
+    // simulate failed request (i.e. nothing to save) == conn won't be established (i.e. DummyConnector not initialized)
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    conn.save("");
+
+    // simulate failed request (i.e. nothing to save) == conn won't be established (i.e. DummyConnector not initialized)
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    conn.save("");
+
+    // simulate good request == conn established here (i.e. DummyConnector initialized)
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    conn.save("<html>...</html>");
 }
 
 
 int main(int argc, char **argv)
 {
-    run_crawler("some-very-important-website.com", true); // this object will init DWH conn, 'cause it needs it
-
-    run_crawler("some-unimportant-website.com"); // this object won't init DWH conn, 'cause it doesn't need it
-
+    simulate_crawler_execution();
 	return 0;
 }
