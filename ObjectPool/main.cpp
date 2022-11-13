@@ -26,7 +26,7 @@ void t_func()
 
 int main(int argc, char **argv)
 {
-    /// simulate parallel connection to DWH
+    /// simulate parallel connection to DWH (basically parallel web crawlers in the Scraper component)
 
     std::thread t1(t_func);
     std::thread t2(t_func);
