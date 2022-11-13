@@ -7,12 +7,16 @@
 
 void t1_func()
 {
+    /// simulate getting DB connection (URIs are different only to see that there'll always really be only one instance)
+
     std::shared_ptr<DatabaseConnection> conn = DatabaseConnection::getInstance("localhost:8080", "admin", "1234");
     conn->execute("SELECT * FROM users");
 }
 
 void t2_func()
 {
+    /// simulate getting DB connection (URIs are different only to see that there'll always really be only one instance)
+
     std::shared_ptr<DatabaseConnection> conn = DatabaseConnection::getInstance("remotehost:8080", "admin", "1234");
     conn->execute("SELECT * FROM products");
 }
