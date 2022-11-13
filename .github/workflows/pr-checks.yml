@@ -17,7 +17,7 @@ jobs:
 
       - name: Create list with design pattern folders
         id: set-list
-        run: echo "list=[$(ls -m -Q -d */)]" >> $GITHUB_OUTPUT
+        run: echo "list=[$(ls -m -Q -d */ | tr '\n' ' ')]" >> $GITHUB_OUTPUT
 
   compile-all:
     needs: collect-design-patterns
