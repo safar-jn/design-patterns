@@ -9,6 +9,7 @@ parts of the prototype.
 - [Abstract Factory](./AbstractFactory)
 - [Builder](./Builder)
 - [Factory Method](./FactoryMethod)
+- [Object Pool](./ObjectPool)
 - [Singleton](./Singleton)
 
 **STRUCTURAL**
