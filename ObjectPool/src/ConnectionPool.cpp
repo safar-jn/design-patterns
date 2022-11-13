@@ -6,9 +6,11 @@ std::mutex ConnectionPool::_mutex;
 
 ConnectionPool::ConnectionPool ()
 {
-    _available.push_back(std::make_shared<Connection>("host_1:8080", "admin", "1234"));
-    _available.push_back(std::make_shared<Connection>("host_2:8080", "admin", "1234"));
-    _available.push_back(std::make_shared<Connection>("host_3:8080", "admin", "1234"));
+    /// predefined connections that are available
+
+    _available.push_back(std::make_shared<DWHConnection>("host_1:8080", "admin", "1234"));
+    _available.push_back(std::make_shared<DWHConnection>("host_2:8080", "admin", "1234"));
+    _available.push_back(std::make_shared<DWHConnection>("host_3:8080", "admin", "1234"));
 }
 
 std::shared_ptr<ConnectionPool> ConnectionPool::getInstance ()
@@ -21,8 +23,10 @@ std::shared_ptr<ConnectionPool> ConnectionPool::getInstance ()
     return _instance;
 }
 
-std::shared_ptr<Connection> ConnectionPool::acquire ()
+std::shared_ptr<DWHConnection> ConnectionPool::acquire ()
 {
+    /// borrow of the available connections to some client
+
     std::scoped_lock lock(_mutex);
 
     if (_available.empty())
@@ -35,8 +39,10 @@ std::shared_ptr<Connection> ConnectionPool::acquire ()
     return conn;
 }
 
-void ConnectionPool::release (std::shared_ptr<Connection> conn)
+void ConnectionPool::release (const std::shared_ptr<DWHConnection> &conn)
 {
+    /// get back one of the borrowed connections from some client
+
     std::scoped_lock lock(_mutex);
     _available.push_back(conn);
     _in_use.erase(conn);

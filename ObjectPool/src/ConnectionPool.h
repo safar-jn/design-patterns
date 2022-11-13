@@ -2,7 +2,7 @@
 #define DESIGN_PATTERNS_CONNECTIONPOOL_H
 
 
-#include "Connection.h"
+#include "DWHConnection.h"
 
 #include <set>
 #include <deque>
@@ -15,16 +15,16 @@ class ConnectionPool
     public:
         static std::shared_ptr<ConnectionPool> getInstance();
 
-        std::shared_ptr<Connection>     acquire();
-        void                            release(std::shared_ptr<Connection> conn);
+        std::shared_ptr<DWHConnection>  acquire();
+        void                            release(const std::shared_ptr<DWHConnection>& conn);
     private:
         ConnectionPool();
 
-        static std::shared_ptr<ConnectionPool>  _instance;
-        static std::mutex                       _mutex;
+        static std::shared_ptr<ConnectionPool>      _instance;
+        static std::mutex                           _mutex;
 
-        std::deque<std::shared_ptr<Connection>> _available;
-        std::set<std::shared_ptr<Connection>>   _in_use;
+        std::deque<std::shared_ptr<DWHConnection>> _available;
+        std::set<std::shared_ptr<DWHConnection>>   _in_use;
 };
 
 

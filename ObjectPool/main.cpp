@@ -6,6 +6,8 @@
 
 void t_func()
 {
+    /// simulate workload that includes saving data to DWH using one of the opened connections in ConnectionPool
+
     try
     {
         auto conn = ConnectionPool::getInstance()->acquire();
@@ -24,6 +26,8 @@ void t_func()
 
 int main(int argc, char **argv)
 {
+    /// simulate parallel connection to DWH
+
     std::thread t1(t_func);
     std::thread t2(t_func);
     std::thread t3(t_func);
