@@ -14,7 +14,7 @@ parts of the prototype.
 - [Singleton](./Singleton)
 
 **STRUCTURAL**
-- ...
+- [Adapter](./Adapter)
 
 **BEHAVIORAL**
 - ...
