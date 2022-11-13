@@ -10,6 +10,8 @@ parts of the prototype.
 - [Builder](./Builder)
 - [Factory Method](./FactoryMethod)
 - [Lazy Load](./LazyLoad)
+- [Object Pool](./ObjectPool)
+- [Singleton](./Singleton)
 
 **STRUCTURAL**
 - ...
