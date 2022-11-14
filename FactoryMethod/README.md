@@ -1,4 +1,4 @@
-# Factory Method
+# FACTORY METHOD
 
 #### GENERAL
 
