@@ -16,6 +16,7 @@ parts of the prototype.
 **STRUCTURAL**
 - [Adapter](./Adapter)
 - [Decorator](./Decorator)
+- [Facade](./Facade)
 
 **BEHAVIORAL**
 - ...
