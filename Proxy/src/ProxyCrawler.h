@@ -2,8 +2,8 @@
 #define DESIGN_PATTERNS_PROXYCRAWLER_H
 
 
-#include "CrawlerInterface.h"
-#include "Crawler.h"
+#include "crawler_lib/CrawlerInterface.h"
+#include "crawler_lib/Crawler.h"
 
 #include <memory>
 #include <regex>

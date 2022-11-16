@@ -1,4 +1,4 @@
-#include "src/CrawlerInterface.h"
+#include "src/crawler_lib/CrawlerInterface.h"
 #include "src/ProxyCrawler.h"
 
 #include <list>
@@ -6,6 +6,7 @@
 #include <memory>
 
 
+/// simulate client code
 void run_crawler(std::shared_ptr<CrawlerInterface> crawler)
 {
     std::list<std::string> websites = {"website.com", "other-website.gov", "foo.org"};
