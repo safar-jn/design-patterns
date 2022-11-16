@@ -17,6 +17,7 @@ parts of the prototype.
 - [Adapter](./Adapter)
 - [Decorator](./Decorator)
 - [Facade](./Facade)
+- [Flyweight](./Flyweight)
 
 **BEHAVIORAL**
 - ...
