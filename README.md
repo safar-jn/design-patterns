@@ -18,6 +18,7 @@ parts of the prototype.
 - [Decorator](./Decorator)
 - [Facade](./Facade)
 - [Flyweight](./Flyweight)
+- [Mock Object](./MockObject)
 - [Proxy](./Proxy)
 
 **BEHAVIORAL**
