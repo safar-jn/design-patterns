@@ -22,7 +22,8 @@ parts of the prototype.
 - [Proxy](./Proxy)
 
 **BEHAVIORAL**
-- ...
+- [Chain of Responsibility](./ChainOfResponsibility)
+- [Command](./Command)
 
 **CONCURRENT**
 - ...
