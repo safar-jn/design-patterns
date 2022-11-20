@@ -24,6 +24,7 @@ parts of the prototype.
 **BEHAVIORAL**
 - [Chain of Responsibility](./ChainOfResponsibility)
 - [Command](./Command)
+- [Iterator](./Iterator)
 
 **CONCURRENT**
 - ...
