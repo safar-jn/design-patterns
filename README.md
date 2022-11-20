@@ -25,6 +25,7 @@ parts of the prototype.
 - [Chain of Responsibility](./ChainOfResponsibility)
 - [Command](./Command)
 - [Iterator](./Iterator)
+- [Mediator](./Mediator)
 
 **CONCURRENT**
 - ...
