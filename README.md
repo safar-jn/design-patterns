@@ -27,6 +27,7 @@ parts of the prototype.
 - [Iterator](./Iterator)
 - [Mediator](./Mediator)
 - [Memento](./Memento)
+- [Observer](./Observer)
 
 **CONCURRENT**
 - ... 
