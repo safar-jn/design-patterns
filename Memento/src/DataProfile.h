@@ -10,7 +10,8 @@ class DataProfile
     public:
         class Memento
         {
-            public:
+                friend class DataProfile;
+            private:
                 Memento (const std::map<std::string, std::map<std::string, std::string>> &data);
                 std::map<std::string, std::map<std::string, std::string>> _backup;
         };
