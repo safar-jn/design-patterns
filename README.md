@@ -29,6 +29,7 @@ parts of the prototype.
 - [Memento](./Memento)
 - [Observer](./Observer)
 - [State](./State)
+- [Strategy](./Strategy)
 
 **CONCURRENT**
 - ... 
