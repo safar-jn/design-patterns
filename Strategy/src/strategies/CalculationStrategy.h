@@ -8,6 +8,7 @@
 class CalculationStrategy
 {
     public:
+        virtual ~CalculationStrategy () {};
         virtual double calculate (const std::vector<double> &data) = 0;
 };
 
