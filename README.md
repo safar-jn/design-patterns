@@ -30,6 +30,7 @@ parts of the prototype.
 - [Observer](./Observer)
 - [State](./State)
 - [Strategy](./Strategy)
+- [Template Method](./TemplateMethod)
 
 **CONCURRENT**
 - ... 
