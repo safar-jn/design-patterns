@@ -2,7 +2,7 @@
 
 
 /// during Crawler init create&start new internal thread
-Crawler::Crawler (): _worker(std::thread(&Crawler::executeTask, this)), _run(true)
+Crawler::Crawler (): _run(true), _worker(std::thread(&Crawler::executeTask, this))
 {}
 
 void Crawler::terminate ()

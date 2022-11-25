@@ -21,8 +21,8 @@ class Crawler
         void executeTask ();
 
         ThreadSafeQueue<std::string> _tasks;
-        std::thread                  _worker;
         bool                         _run;
+        std::thread                  _worker;
 };
 
 
