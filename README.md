@@ -34,7 +34,7 @@ parts of the prototype.
 - [Template Method](./TemplateMethod)
 
 **CONCURRENT**
-- ... 
+- [Active Object](./ActiveObject)
 
 ---
 
