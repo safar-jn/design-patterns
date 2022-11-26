@@ -36,6 +36,7 @@ parts of the prototype.
 **CONCURRENT**
 - [Active Object](./ActiveObject)
 - [Master/Slave](./MasterSlave)
+- [Thread Local Storage](./ThreadLocalStorage)
 
 ---
 
