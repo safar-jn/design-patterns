@@ -3,6 +3,7 @@
 
 void Logger::config (const std::string &infoPrefix, const std::string &warnPrefix, const std::string &errPrefix)
 {
+    // simulate some logger configuration
     _info_prefix = infoPrefix;
     _warn_prefix = warnPrefix;
     _err_prefix = errPrefix;
