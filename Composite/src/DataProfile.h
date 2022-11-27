@@ -2,10 +2,14 @@
 #define DESIGN_PATTERNS_DATAPROFILE_H
 
 
+#include <cstdlib>
+
+
 class DataProfile
 {
     public:
-        virtual float correctness() const = 0;
+        virtual size_t count    () const = 0;
+        virtual double numerize () const = 0;
 };
 
 

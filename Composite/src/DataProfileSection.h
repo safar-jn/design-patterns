@@ -12,11 +12,14 @@ class DataProfileSection: public DataProfile
 {
     public:
                 DataProfileSection  (const std::string &name);
-        void    add                 (std::shared_ptr<DataProfile> child);
-        void    rmv                 (std::shared_ptr<DataProfile> child);
-        float   correctness         () const override;
+        void    add                 (const std::shared_ptr<DataProfile>& child);
+        void    rmv                 (const std::shared_ptr<DataProfile>& child);
+        // ...
+        size_t count    () const override;
+        double numerize () const override;
+
     private:
-        std::string _name;
+        std::string                            _name;
         std::set<std::shared_ptr<DataProfile>> _children;
 };
 

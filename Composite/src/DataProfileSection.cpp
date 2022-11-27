@@ -4,22 +4,32 @@
 DataProfileSection::DataProfileSection (const std::string &name): _name(name)
 {}
 
-void DataProfileSection::add (std::shared_ptr<DataProfile> child)
+void DataProfileSection::add (const std::shared_ptr<DataProfile>& child)
 {
     _children.insert(child);
 }
 
-void DataProfileSection::rmv (std::shared_ptr<DataProfile> child)
+void DataProfileSection::rmv (const std::shared_ptr<DataProfile>& child)
 {
     _children.erase(child);
 }
 
-float DataProfileSection::correctness () const
+size_t DataProfileSection::count () const
 {
-    float sum = 0.0;
+    size_t cnt = 0;
 
     for (const auto &child : _children)
-        sum += child->correctness();
+        cnt += child->count();
 
-    return sum / _children.size();
+    return cnt;
+}
+
+double DataProfileSection::numerize () const
+{
+    double sum = 0.0;
+
+    for (const auto &child : _children)
+        sum += child->numerize();
+
+    return sum / count();
 }
