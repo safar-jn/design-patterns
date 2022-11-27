@@ -1,49 +1,43 @@
-# Prototype
+# PROTOTYPE
 
 #### GENERAL
 
-**Creational** GoF design pattern that defines an interface for creating objects, but lets individual subclasses
-decide which concrete object to instantiate.
+**Creational** GoF design pattern that allows us easily clone existing objects disregarding their concrete types.
 
 #### USAGE
 
-It's mainly used when there is an uncertainty in future development, and you don't know beforehand what concrete
-objects have to be accommodated in the rest of the code.
+Generally this pattern is used in situations when it's desired to make some code completely independent of concrete
+classes (usually some third-party objects). It can also be used to reduce duplicate code of setting up some complex
+objects by cloning already existing instance and just changing whats needed.
 
 #### STRUCTURE
 
 ![prototype](Prototype.svg)
 
-TL;DR behaviour - there is an entity (**A**) with specific variations (**A_1, A_2**) that are most likely going
-to be diversified during app's lifecycle. Furthermore, there is a factory (**Creator**) that somehow works with
-this entity and so it has to adapt to the future extensions. To do that, instead of hard-coding creation
-of specific types, the factory (**Creator**) works with its own abstract method (**createA()** - i.e. Factory Method)
-which is then implemented in its subclasses (**Creator_1, Creator_2**) to return one of the concrete entity types
-(**A_1, A_2**).
+TL;DR behaviour - there is a common interface for all cloneable objects (**Prototype**) which most importantly defines
+cloning method ( **clone()** ) that returns the type **Prototype**. This method is then overridden in individual 
+subclasses where the implementation creates and returns new object of their respective types (i.e. **Prototype_A, 
+Prototype_B, ...**). Clients can than just work with **Prototype** interfaces and thanks to [dynamic dyspatch](https://en.wikipedia.org/wiki/Dynamic_dispatch)
+always clone concrete types of objects.
 
 #### EXAMPLE
 
-Let's imagine following situation in the context of the aforementioned [prototype](../README.md#prototype). To unify
-the way we do logging in all components we want to code our own minimalistic logging library. Part of this library
-will probably be some kind of main logger object. Now because requirements on our app constantly evolve we want the
-logging library to be versatile and support storing logs to different destinations (e.g. console, file, ...) but
-we don't really know the full list of possible storages.
+Let's imagine following situation in the context of the aforementioned [prototype](../README.md#prototype). The **modeler**
+works with set of classes representing various variables used in computations and just to make our lives a little easier
+we'd like for them to cloneable (so rest of the **modeler's** code doesn't have to be tightly coupled with individual
+types of variables).
 
 #### SOLUTION
 
-One way to meet the set criteria is to use a **Factory Method** for part of the logging library. Basically we just
-separate the "writing logic" into its own class hierarchy that will mediate access to the underlying storage
-(ConsoleStorage, FileStorage, ...). After that we'll just modify the main logger class, so it doesn't use concrete
-storages, but in their place calls its own abstract method for creating the storage object. This method will then be
-overridden in subclassing loggers according to used storing destination (e.g. ConsoleLogger, FileLogger, ...).
+This example can be perfectly designed using **Prototype** by just creating shared interfaces for all variables with
+a cloning method which will be later overridden in specific classes.
 
 Dummy implementation of this [example/solution](src) and [how to use it](main.cpp) is part of this directory.
 
 #### SUMMARY
 
-Best part about this approach is that future extensions with new storage types are extremely simple - all that is
-required is to implement the storage class (e.g. ElasticsearchStorage) and logger subclass (e.g. ElasticsearchLogger)
-that overrides the abstract factory method to create corresponding storage object.
+This pattern has several great aspects like decoupling object copying from their types, providing more convenient way
+to create complex objects and even possible reducing redundant code.
 
-Probably the biggest disadvantage is that this approach can be a little confusing at first and requires thorough
-initial consideration of all the common interfaces.
+Only tricky problem that might occur when implementing this pattern is if we have objects with circular references -
+solving that might be a bit of a challenge.
