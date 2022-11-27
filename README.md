@@ -10,15 +10,34 @@ parts of the prototype.
 - [Builder](./Builder)
 - [Factory Method](./FactoryMethod)
 - [Prototype](./Prototype)
+- [Lazy Load](./LazyLoad)
+- [Object Pool](./ObjectPool)
+- [Singleton](./Singleton)
 
 **STRUCTURAL**
-- ...
+- [Adapter](./Adapter)
+- [Decorator](./Decorator)
+- [Facade](./Facade)
+- [Flyweight](./Flyweight)
+- [Mock Object](./MockObject)
+- [Proxy](./Proxy)
 
 **BEHAVIORAL**
-- ...
+- [Chain of Responsibility](./ChainOfResponsibility)
+- [Command](./Command)
+- [Iterator](./Iterator)
+- [Mediator](./Mediator)
+- [Memento](./Memento)
+- [Null Object](./NullObject)
+- [Observer](./Observer)
+- [State](./State)
+- [Strategy](./Strategy)
+- [Template Method](./TemplateMethod)
 
 **CONCURRENT**
-- ...
+- [Active Object](./ActiveObject)
+- [Master/Slave](./MasterSlave)
+- [Thread Local Storage](./ThreadLocalStorage)
 
 ---
 
