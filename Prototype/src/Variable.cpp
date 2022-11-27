@@ -1,5 +1,8 @@
-//
-// Created by John on 10/11/2022.
-//
-
 #include "Variable.h"
+
+
+Variable::Variable (const std::string &name): _name(name)
+{}
+
+Variable::~Variable ()
+{}
