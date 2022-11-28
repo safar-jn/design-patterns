@@ -35,6 +35,7 @@ parts of the prototype.
 - [State](./State)
 - [Strategy](./Strategy)
 - [Template Method](./TemplateMethod)
+- [Visitor](./Visitor)
 
 **CONCURRENT**
 - [Active Object](./ActiveObject)
