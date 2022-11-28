@@ -9,13 +9,15 @@ parts of the prototype.
 - [Abstract Factory](./AbstractFactory)
 - [Builder](./Builder)
 - [Factory Method](./FactoryMethod)
-- [Prototype](./Prototype)
 - [Lazy Load](./LazyLoad)
 - [Object Pool](./ObjectPool)
+- [Prototype](./Prototype)
 - [Singleton](./Singleton)
 
 **STRUCTURAL**
 - [Adapter](./Adapter)
+- [Bridge](./Bridge)
+- [Composite](./Composite)
 - [Decorator](./Decorator)
 - [Facade](./Facade)
 - [Flyweight](./Flyweight)
