@@ -36,5 +36,5 @@ const std::set<std::shared_ptr<DataProfile>> &DataProfileSection::getChildren ()
 
 void DataProfileSection::accept (Exporter *exporter)
 {
-    exporter->visitDataProfileSection(this);
+    exporter->visitDataProfile(this);
 }

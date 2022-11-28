@@ -10,9 +10,9 @@
 class XMLExporter: public Exporter
 {
     public:
-        void visitDataProfileSection (DataProfileSection *dpSection) override;
-        void visitDataProfileID      (DataProfileID *dpID) override;
-        void visitDataProfileRating  (DataProfileRating *dpRating) override;
+        void visitDataProfile (DataProfileSection *dpSection) override;
+        void visitDataProfile (DataProfileID *dpID) override;
+        void visitDataProfile (DataProfileRating *dpRating) override;
 };
 
 

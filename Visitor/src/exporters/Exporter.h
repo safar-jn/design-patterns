@@ -10,9 +10,9 @@ class DataProfileRating;
 class Exporter
 {
     public:
-        virtual void visitDataProfileSection (DataProfileSection *dpSection) = 0;
-        virtual void visitDataProfileID      (DataProfileID *dpID) = 0;
-        virtual void visitDataProfileRating  (DataProfileRating *dpRating) = 0;
+        virtual void visitDataProfile (DataProfileSection *dpSection) = 0;
+        virtual void visitDataProfile (DataProfileID *dpID) = 0;
+        virtual void visitDataProfile (DataProfileRating *dpRating) = 0;
 };
 
 

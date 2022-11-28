@@ -5,7 +5,7 @@
 #include "../dataprofile/DataProfileRating.h"
 
 
-void XMLExporter::visitDataProfileSection (DataProfileSection *dpSection)
+void XMLExporter::visitDataProfile (DataProfileSection *dpSection)
 {
     std::cout << "<" << dpSection->getName() << " itemCnt='" << dpSection->count() << "'>\n";
 
@@ -16,7 +16,7 @@ void XMLExporter::visitDataProfileSection (DataProfileSection *dpSection)
 
 }
 
-void XMLExporter::visitDataProfileID (DataProfileID *dpID)
+void XMLExporter::visitDataProfile (DataProfileID *dpID)
 {
     std::cout << "<client_id itemCnt='" << dpID->count() << "'>\n"
               << "  <name>" << dpID->getName() << "</name>\n"
@@ -26,7 +26,7 @@ void XMLExporter::visitDataProfileID (DataProfileID *dpID)
               << std::endl;
 }
 
-void XMLExporter::visitDataProfileRating (DataProfileRating *dpRating)
+void XMLExporter::visitDataProfile (DataProfileRating *dpRating)
 {
     std::cout << "  <rating>" << dpRating->getValue() << "</rating>" << std::endl;
 }

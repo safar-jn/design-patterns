@@ -28,5 +28,5 @@ const std::string &DataProfileID::getRc () const
 
 void DataProfileID::accept (Exporter *exporter)
 {
-    exporter->visitDataProfileID(this);
+    exporter->visitDataProfile(this);
 }
