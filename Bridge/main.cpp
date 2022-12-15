@@ -9,7 +9,7 @@ void simulateClient (const std::shared_ptr<CacheHandler> &cacheHandler)
 {
     // simulate some client code that uses CacheHandler for caching results
     //   - as we can see, the client is completely oblivious to which DB technology is used in the handler
-    // ...
+
     cacheHandler->cacheScore("client_id_1", "56.78");
     // ...
 }
