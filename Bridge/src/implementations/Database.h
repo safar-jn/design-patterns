@@ -6,6 +6,7 @@
 #include <iostream>
 
 
+/// common interface for all Database connectors
 class Database
 {
     public:

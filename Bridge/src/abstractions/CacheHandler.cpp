@@ -1,9 +1,9 @@
 #include "CacheHandler.h"
 
 
-void CacheHandler::setConnection (Database *conn)
+void CacheHandler::setConnection (std::shared_ptr<Database> conn)
 {
-    _conn = conn;
+    _conn = std::move(conn);
 }
 
 void CacheHandler::cacheScore (const std::string &clientID, const std::string &score)

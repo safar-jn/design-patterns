@@ -4,15 +4,17 @@
 
 #include "../implementations/Database.h"
 
+#include <memory>
+
 
 class CacheHandler
 {
     public:
-        void setConnection (Database *conn);
+        void setConnection (std::shared_ptr<Database> conn);
         void cacheScore    (const std::string &clientID, const std::string &score);
         // ...
     private:
-        Database *_conn = nullptr;
+        std::shared_ptr<Database> _conn {nullptr};
 };
 
 

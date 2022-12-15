@@ -5,6 +5,7 @@
 #include "Database.h"
 
 
+/// concrete Database connector - for Oracle
 class OracleDatabase: public Database
 {
     public:
