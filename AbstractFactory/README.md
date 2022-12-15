@@ -41,5 +41,5 @@ Also adding new variations (i.e. binning principles) won't require that much eff
 adding corresponding objects and factory.
 
 Probably the biggest disadvantage is that opposed to adding new binning approaches, adding whole new variable will 
-require some extra work - extending the factories' interface (**AbstracFactory**) and therefore extending all 
+require some extra work - extending the factories' interface (**AbstractFactory**) and therefore extending all 
 existing factories.

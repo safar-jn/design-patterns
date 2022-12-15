@@ -4,11 +4,12 @@
 #include "VariableA.h"
 
 
+/// concrete variation of VariableA object ("ExistsBinning" variation)
 class VariableA_ExistsBinning: public VariableA
 {
 	public:
-			VariableA_ExistsBinning(int value, float factor = 1.0);
-		int bin() const;
+			VariableA_ExistsBinning (int value, float factor = 1.0);
+		int bin                     () const;
 };
 
 

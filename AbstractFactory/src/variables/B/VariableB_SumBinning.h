@@ -4,11 +4,12 @@
 #include "VariableB.h"
 
 
+/// concrete variation of VariableA object ("SumBinning" variation)
 class VariableB_SumBinning: public VariableB
 {
 	public:
-			VariableB_SumBinning(std::vector<int> values);
-		int bin() const;
+			VariableB_SumBinning (std::vector<int> values);
+		int bin                  () const;
 };
 
 

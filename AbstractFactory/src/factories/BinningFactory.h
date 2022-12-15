@@ -7,11 +7,12 @@
 #include <memory>
 
 
+/// interface for all factories - defines methods for creating Variable objects
 class BinningFactory
 {
 	public:
-		virtual std::shared_ptr<VariableA> createVariableA(int value, float factor) const = 0;
-		virtual std::shared_ptr<VariableB> createVariableB(const std::vector<int> &values) const = 0;
+		virtual std::shared_ptr<VariableA> createVariableA (int value, float factor) const = 0;
+		virtual std::shared_ptr<VariableB> createVariableB (const std::vector<int> &values) const = 0;
 };
 
 

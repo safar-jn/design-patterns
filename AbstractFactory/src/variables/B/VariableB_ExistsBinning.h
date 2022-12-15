@@ -4,11 +4,12 @@
 #include "VariableB.h"
 
 
+/// concrete variation of VariableB object ("ExistsBinning" variation)
 class VariableB_ExistsBinning: public VariableB
 {
 	public:
-			VariableB_ExistsBinning(std::vector<int> values);
-		int bin() const;
+			VariableB_ExistsBinning (std::vector<int> values);
+		int bin                     () const;
 };
 
 

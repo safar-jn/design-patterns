@@ -2,6 +2,7 @@
 #define DESIGN_PATTERNS_VARIABLEA_H
 
 
+/// interface for all variations of VariableA objects
 class VariableA
 {
 	public:

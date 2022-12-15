@@ -9,7 +9,9 @@ VariableA_SumBinning::VariableA_SumBinning (int value, float factor)
 
 int VariableA_SumBinning::bin () const
 {
-	float sum = _value * _factor;
+    // simulate binning by value summation
+
+    float sum = _value * _factor;
 
 	if (sum > 13)
 		return 2;

@@ -6,6 +6,7 @@
 
 #include <set>
 #include <memory>
+#include <string>
 
 
 class DataProfileSection: public DataProfile
