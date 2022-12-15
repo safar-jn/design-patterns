@@ -6,7 +6,7 @@ DataProfileRating::DataProfileRating (double value): _value(value)
 
 size_t DataProfileRating::count () const
 {
-    return (bool)_value;
+    return _value == 0.0 ? 0 : 1;
 }
 
 double DataProfileRating::numerize () const

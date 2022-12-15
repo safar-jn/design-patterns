@@ -9,12 +9,14 @@
 #include <string>
 
 
+/// concrete element of the complex structure - this one is recursive (i.e. can nest other elements)
+///   - a.k.a. Composite
 class DataProfileSection: public DataProfile
 {
     public:
-                DataProfileSection  (const std::string &name);
-        void    add                 (const std::shared_ptr<DataProfile>& child);
-        void    rmv                 (const std::shared_ptr<DataProfile>& child);
+                DataProfileSection  (std::string name);
+        void    add                 (const std::shared_ptr<DataProfile> &child);
+        void    rmv                 (const std::shared_ptr<DataProfile> &child);
         // ...
         size_t count    () const override;
         double numerize () const override;
