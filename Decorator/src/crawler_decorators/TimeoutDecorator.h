@@ -6,9 +6,11 @@
 
 #include <thread>
 #include <memory>
+#include <utility>
 #include <iostream>
 
 
+/// one of the concrete decorators - this one extends base object's (Crawler) crawling behaviour with timeout
 class TimeoutDecorator: public CrawlerDecorator
 {
     public:
