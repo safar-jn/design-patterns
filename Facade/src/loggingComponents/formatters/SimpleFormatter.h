@@ -9,6 +9,7 @@
 #include <sstream>
 
 
+/// simulate concrete implementation of one Formatter within logging lib
 class SimpleFormatter: public Formatter
 {
     public:

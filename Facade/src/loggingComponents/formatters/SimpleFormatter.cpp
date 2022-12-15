@@ -1,8 +1,10 @@
 #include "SimpleFormatter.h"
 
 
-std::string SimpleFormatter::format (const std::string & msg)
+std::string SimpleFormatter::format (const std::string &msg)
 {
+    // simulate formatting messages
+
     auto t = std::time(nullptr);
     auto tm = *std::localtime(&t);
 

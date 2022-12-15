@@ -5,6 +5,7 @@
 #include <string>
 
 
+/// simulate common interface for Formatters within logging lib
 class Formatter
 {
     public:

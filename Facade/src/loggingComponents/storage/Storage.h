@@ -5,6 +5,7 @@
 #include <string>
 
 
+/// simulate common interface for Storages within logging lib
 class Storage
 {
     public:
