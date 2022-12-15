@@ -40,4 +40,5 @@ Dummy implementation of this [example/solution](src) and [how to use it](main.cp
 #### SUMMARY
 
 Main obstacle that might be hard to overcome is defining just the right amount in the common interface, because there
-can be a wide variety of "end objects" whose functionality might differ a lot.
+can be a wide variety of "end objects" whose functionality might differ a lot. Other than that, this pattern can be
+very handy (and only option) when you need some sophisticated functionality on complex tree-like structures.

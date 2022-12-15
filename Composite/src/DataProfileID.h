@@ -5,12 +5,14 @@
 #include "DataProfile.h"
 
 #include <string>
+#include <utility>
 
 
+/// concrete element of the complex structure - this one is "end object" (i.e. no further nesting)
 class DataProfileID: public DataProfile
 {
     public:
-               DataProfileID (const std::string &name, const std::string &surname, const std::string &rc);
+               DataProfileID (std::string name, std::string surname, std::string rc);
         size_t count         () const override;
         double numerize      () const override;
     private:
