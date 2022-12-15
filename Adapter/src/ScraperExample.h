@@ -13,7 +13,7 @@ class ScraperExample
 {
     public:
         void registerCrawler (std::shared_ptr<OldDummyCrawler> crawler, const std::string &website);
-        void run ();
+        void run             ();
     private:
         std::list<std::shared_ptr<OldDummyCrawler>> _crawlers;
 

@@ -10,8 +10,8 @@
 class NewDummyCrawler
 {
     public:
-        void        execute         (const std::string &website, uint16_t timeout, uint8_t retry_count);
-        std::string getResult       () const;
+        void        execute   (const std::string &website, uint16_t timeout, uint8_t retry_count);
+        std::string getResult () const;
     protected:
         std::string _result;
 };
