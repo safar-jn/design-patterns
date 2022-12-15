@@ -7,6 +7,7 @@
 #include <iostream>
 
 
+/// simulate concrete implementation of one Storage within logging lib
 class ConsoleStorage: public Storage
 {
     public:
