@@ -7,11 +7,16 @@
 #include <string>
 
 
+/// common interface for all Logger objects within logging lib
+///   - defines Factory Method == createStorage()
+///     - this method is used internally (info, warn, ...) to instantiate Storage object used for saving logs
+///     - concrete corresponding Storage type is defined in subclasses when they override this method
+///     - thanks to this it can implement common methods (such as info, warn, ...)
 class Logger
 {
     public:
-        void info(const std::string &msg);
-        void warn(const std::string &msg);
+        void info (const std::string &msg);
+        void warn (const std::string &msg);
         // ...
         virtual void createStorage() = 0;
     protected:

@@ -1,7 +1,7 @@
 #include "Logger.h"
 
 
-void Logger::info (const std::string & msg)
+void Logger::info (const std::string &msg)
 {
     if (!_storage)
         createStorage();
@@ -9,7 +9,7 @@ void Logger::info (const std::string & msg)
     _storage->write(std::string("[INFO] ") + msg);
 }
 
-void Logger::warn (const std::string & msg)
+void Logger::warn (const std::string &msg)
 {
     if (!_storage)
         createStorage();
