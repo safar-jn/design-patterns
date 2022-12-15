@@ -6,6 +6,7 @@
 #include "factories/BinningFactory.h"
 
 
+/// simulation of client code, that uses AbstractFactory pattern
 class ClientExample
 {
 	public:

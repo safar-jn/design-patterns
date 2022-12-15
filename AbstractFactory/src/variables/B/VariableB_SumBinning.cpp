@@ -11,7 +11,9 @@ VariableB_SumBinning::VariableB_SumBinning (std::vector<int> values)
 
 int VariableB_SumBinning::bin () const
 {
-	int sum = std::accumulate(
+    // simulate binning by value summation
+
+    int sum = std::accumulate(
 		_values.begin(),
 		_values.end(),
 		0,

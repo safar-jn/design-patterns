@@ -8,5 +8,6 @@ VariableB_ExistsBinning::VariableB_ExistsBinning (std::vector<int> values)
 
 int VariableB_ExistsBinning::bin () const
 {
-	return _values.size() ? 1 : 0;
+    // simulate binning by value existence
+    return _values.size() ? 1 : 0;
 }

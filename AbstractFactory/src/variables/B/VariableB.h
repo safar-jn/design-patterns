@@ -4,6 +4,7 @@
 #include <vector>
 
 
+/// interface for all variations of VariableB objects
 class VariableB
 {
 	public:

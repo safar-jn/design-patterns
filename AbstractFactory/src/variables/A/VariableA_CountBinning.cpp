@@ -9,5 +9,6 @@ VariableA_CountBinning::VariableA_CountBinning (int value, float factor)
 
 int VariableA_CountBinning::bin () const
 {
+    // simulate binning by counting number of values
 	return _value ? 1 : 0;
 }

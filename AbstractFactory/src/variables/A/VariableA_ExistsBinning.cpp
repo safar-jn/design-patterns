@@ -9,5 +9,6 @@ VariableA_ExistsBinning::VariableA_ExistsBinning (int value, float factor)
 
 int VariableA_ExistsBinning::bin () const
 {
+    // simulate binning by value existence
 	return _value ? 1 : 0;
 }

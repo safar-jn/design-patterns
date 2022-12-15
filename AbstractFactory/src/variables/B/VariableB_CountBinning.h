@@ -4,11 +4,12 @@
 #include "VariableB.h"
 
 
+/// concrete variation of VariableB object ("CountBinning" variation)
 class VariableB_CountBinning: public VariableB
 {
 	public:
-			VariableB_CountBinning(std::vector<int> values);
-		int bin() const;
+			VariableB_CountBinning (std::vector<int> values);
+		int bin                    () const;
 };
 
 

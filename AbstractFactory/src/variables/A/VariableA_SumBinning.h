@@ -4,11 +4,12 @@
 #include "VariableA.h"
 
 
+/// concrete variation of VariableA object ("SumBinning" variation)
 class VariableA_SumBinning: public VariableA
 {
 	public:
-			VariableA_SumBinning(int value, float factor = 1.0);
-		int bin() const;
+			VariableA_SumBinning (int value, float factor = 1.0);
+		int bin                  () const;
 };
 
 
