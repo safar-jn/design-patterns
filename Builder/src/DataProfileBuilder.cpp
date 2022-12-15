@@ -1,40 +1,46 @@
 #include "DataProfileBuilder.h"
 
-#include <iostream>
-
 
 DataProfileBuilder::DataProfileBuilder (): _result(std::make_shared<DataProfile>())
 {}
 
-DataProfileBuilder & DataProfileBuilder::reset ()
+DataProfileBuilder& DataProfileBuilder::reset ()
 {
+    // reset _result - i.e. the object that's under construction
+
+    std::cout << "[DataProfileBuilder] | resetting builder progress" << std::endl;
     _result = std::make_shared<DataProfile>();
     return *this;
 }
 
-DataProfileBuilder & DataProfileBuilder::setName (const std::string &name)
+DataProfileBuilder& DataProfileBuilder::setName (std::string name)
 {
-    _result->_name = name;
+    std::cout << "[DataProfileBuilder] | adding name='" << name << "' to current object" << std::endl;
+    _result->_name = std::move(name);
     return *this;
 }
 
-DataProfileBuilder & DataProfileBuilder::setSurname (const std::string &surname)
+DataProfileBuilder& DataProfileBuilder::setSurname (std::string surname)
 {
-    _result->_surname = surname;
+    std::cout << "[DataProfileBuilder] | adding surname='" << surname << "' to current object" << std::endl;
+    _result->_surname = std::move(surname);
     return *this;
 }
 
-DataProfileBuilder & DataProfileBuilder::setBirthYear (uint16_t birthYear)
+DataProfileBuilder& DataProfileBuilder::setBirthYear (uint16_t birthYear)
 {
+    std::cout << "[DataProfileBuilder] | adding birthYear='" << (int)birthYear << "' to current object" << std::endl;
     _result->_birth_year = birthYear;
     return *this;
 }
 
-DataProfileBuilder & DataProfileBuilder::addGoogleRating (float rating)
+DataProfileBuilder& DataProfileBuilder::addGoogleRating (float rating)
 {
+    std::cout << "[DataProfileBuilder] | adding googleRating='" << rating << "' to current object" << std::endl;
+
     if (rating < 0.0 || rating > 5.0)
     {
-        std::cerr << ">> rating not added - must be in range <0.0;5.0>" << std::endl;
+        std::cerr << "[DataProfileBuilder] | rating not added - must be in range <0.0;5.0>" << std::endl;
         return *this;
     }
 
@@ -44,5 +50,6 @@ DataProfileBuilder & DataProfileBuilder::addGoogleRating (float rating)
 
 std::shared_ptr<DataProfile> DataProfileBuilder::construct ()
 {
+    std::cout << "[DataProfileBuilder] | returning current object" << std::endl;
     return _result;
 }
