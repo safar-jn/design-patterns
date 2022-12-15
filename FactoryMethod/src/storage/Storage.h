@@ -4,6 +4,7 @@
 #include <string>
 
 
+/// common interface for all Storage objects within logging lib
 class Storage
 {
     public:

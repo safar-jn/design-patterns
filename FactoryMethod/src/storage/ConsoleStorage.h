@@ -6,6 +6,7 @@
 #include <string>
 
 
+/// concrete Storage type within logging lib - used by ConsoleLogger to log into console
 class ConsoleStorage: public Storage
 {
     public:
