@@ -1,14 +1,14 @@
-#include <memory>
-#include <iostream>
-
-#include "src/Handler.h"
 #include "src/AuthorizationHandler.h"
 #include "src/CacheHandler.h"
 #include "src/TriggerHandler.h"
 
+#include <memory>
+#include <iostream>
 
-std::string create_dummy_request (const std::string &sourceSystem, const std::string &clientID)
+
+std::string createDummyRequest (const std::string &sourceSystem, const std::string &clientID)
 {
+    // simulate creating dummy requests that are then processed by CoR
     return  "<ScoringRequest>"
                 "<metadata>"
                     "<timestamp>1970-01-01 00:00:00</timestamp>"
@@ -25,32 +25,44 @@ std::string create_dummy_request (const std::string &sourceSystem, const std::st
 
 int main(int argc, char **argv)
 {
-    std::list<std::string> dummy_requests =
+    // simulate dummy requests with different properties (i.e. each one will produce different result)
+    std::list<std::string> dummyRequests =
             {
-                    create_dummy_request("SYSTEM_2", "CLIENT_ID_1"), // unauthorized system
-                    create_dummy_request("SYSTEM_3", "CLIENT_ID_1"), // authorized system; cached result
-                    create_dummy_request("SYSTEM_3", "CLIENT_ID_9")  // authorized system; uncached result
+                    createDummyRequest("SYSTEM_2", "CLIENT_ID_1"), // unauthorized system
+                    createDummyRequest("SYSTEM_3", "CLIENT_ID_1"), // authorized system; cached result
+                    createDummyRequest("SYSTEM_3", "CLIENT_ID_9")  // authorized system; uncached result
             };
 
     // ---
 
-    std::shared_ptr<Handler> handler_1 = std::make_shared<AuthorizationHandler>();
-    std::shared_ptr<Handler> handler_2 = std::make_shared<CacheHandler>();
-    std::shared_ptr<Handler> handler_3 = std::make_shared<TriggerHandler>();
+    // create individual handlers
+    auto handler_1 = std::make_shared<AuthorizationHandler>();
+    auto handler_2 = std::make_shared<CacheHandler>();
+    auto handler_3 = std::make_shared<TriggerHandler>();
 
-    handler_1->setNext(handler_2.get())->setNext(handler_3.get());
+    // link handlers into a chain (CoR)
+    handler_1->setNext(handler_2)->setNext(handler_3);
 
-    /// simulate processing several requests
-    for (const auto &req: dummy_requests)
+    // simulate processing several requests - just pass it to the first handler in chain
+    for (const auto &req: dummyRequests)
     {
         try
         {
-            std::cout << handler_1->handle(req) << std::endl;
+            auto res = handler_1->handle(req);
+
+            if (!res.empty())
+            {
+                std::cout << " |- " << res << "\n"
+                          << " |- <<TERMINATING CoR>>" << std::endl;
+            }
         }
         catch (const std::runtime_error &e)
         {
-            std::cerr << e.what() << std::endl;
+            std::cerr << " |- " << e.what() << "\n"
+                      << " |- <<TERMINATING CoR>>" << std::endl;
         }
+
+        std::cout << "---" << std::endl;
     }
 
 	return 0;

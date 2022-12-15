@@ -4,14 +4,18 @@
 
 #include "Handler.h"
 
+#include <string>
+#include <memory>
 
+
+/// base for all handlers in CoR - implements common logic for passing requests down the chain
 class BaseHandler: public Handler
 {
     public:
-        Handler*    setNext (Handler *handler) override;
-        std::string handle  (const std::string &request) override;
+        std::shared_ptr<Handler> setNext (std::shared_ptr<Handler> handler) override;
+        std::string              handle  (const std::string &request) override;
     private:
-        Handler *_next_handler = nullptr;
+        std::shared_ptr<Handler> _next_handler {nullptr};
 };
 
 

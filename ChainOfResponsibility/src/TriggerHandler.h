@@ -4,7 +4,10 @@
 
 #include "BaseHandler.h"
 
+#include <iostream>
 
+
+/// one of the concrete handlers in CoR - simulates triggering Scraper
 class TriggerHandler: public BaseHandler
 {
     public:
