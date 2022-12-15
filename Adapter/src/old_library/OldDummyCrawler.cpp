@@ -11,9 +11,9 @@ void OldDummyCrawler::setRetryCount (uint8_t retry_count)
     _retry_count = retry_count;
 }
 
-void OldDummyCrawler::setWebsite (const std::string & website)
+void OldDummyCrawler::setWebsite (std::string website)
 {
-    _website = website;
+    _website = std::move(website);
 }
 
 std::string OldDummyCrawler::crawl ()

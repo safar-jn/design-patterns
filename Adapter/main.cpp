@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 
     scraper_1.run();
 
-    /// simulate scraper using new crawlers
+    /// simulate scraper using new crawlers (using Adapter)
     ScraperExample scraper_2;
 
     scraper_2.registerCrawler(std::make_shared<NewToOldAdapter>(), "some-website-1.com");

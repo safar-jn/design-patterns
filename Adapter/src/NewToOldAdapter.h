@@ -8,11 +8,11 @@
 #include <memory>
 
 
-class NewToOldAdapter: public OldDummyCrawler // adapter copies interface of the original object
+class NewToOldAdapter: public OldDummyCrawler // adapter mimics interface of the original object
 {
     public:
-                    NewToOldAdapter();
-        std::string crawl() override;
+                    NewToOldAdapter ();
+        std::string crawl           () override;
     protected:
         std::shared_ptr<NewDummyCrawler> _crawler {nullptr};
 };

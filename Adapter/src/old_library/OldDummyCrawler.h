@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <utility>
 #include <iostream>
 
 
@@ -12,7 +13,7 @@ class OldDummyCrawler
     public:
         virtual void        setTimeout      (uint16_t timeout);
         virtual void        setRetryCount   (uint8_t retry_count);
-        virtual void        setWebsite      (const std::string &website);
+        virtual void        setWebsite      (std::string website);
         virtual std::string crawl           ();
         // ...
     protected:
