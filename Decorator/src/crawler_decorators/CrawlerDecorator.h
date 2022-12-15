@@ -5,8 +5,10 @@
 #include "../CrawlerInterface.h"
 
 #include <memory>
+#include <utility>
 
 
+/// base decorator - implements wrapping mechanism around the base object (Crawler), but does NOT modify it's behaviour
 class CrawlerDecorator: public CrawlerInterface
 {
     public:

@@ -5,13 +5,15 @@
 #include "CrawlerInterface.h"
 
 #include <string>
+#include <utility>
 #include <iostream>
 
 
+/// base object
 class Crawler: public CrawlerInterface
 {
     public:
-             Crawler (const std::string &website);
+             Crawler (std::string website);
         void execute () override;
     private:
         std::string _website;

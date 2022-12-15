@@ -2,6 +2,7 @@
 #define DESIGN_PATTERNS_CRAWLERINTERFACE_H
 
 
+/// common interface for base object (Crawler) as well as corresponding decorators
 class CrawlerInterface
 {
     public:

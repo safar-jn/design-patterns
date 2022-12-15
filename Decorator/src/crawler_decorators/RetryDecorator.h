@@ -5,9 +5,11 @@
 #include "CrawlerDecorator.h"
 
 #include <memory>
+#include <utility>
 #include <iostream>
 
 
+/// one of the concrete decorators - this one extends base object's (Crawler) crawling behaviour with retry policy
 class RetryDecorator: public CrawlerDecorator
 {
     public:
