@@ -2,6 +2,7 @@
 #define DESIGN_PATTERNS_COMMAND_H
 
 
+/// common interface for all commands
 class Command
 {
     public:

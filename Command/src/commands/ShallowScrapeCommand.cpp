@@ -1,8 +1,8 @@
 #include "ShallowScrapeCommand.h"
 
 
-ShallowScrapeCommand::ShallowScrapeCommand (Crawler *crawler, const std::string &website):
-    _crawler(crawler), _website(website)
+ShallowScrapeCommand::ShallowScrapeCommand (std::shared_ptr<Crawler> crawler, std::string website):
+    _crawler(std::move(crawler)), _website(std::move(website))
 {}
 
 void ShallowScrapeCommand::execute ()
