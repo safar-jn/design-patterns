@@ -5,6 +5,7 @@
 #include "Database.h"
 
 
+/// concrete Database connector - for Postgres
 class PostgresDatabase: public Database
 {
     public:
