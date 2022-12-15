@@ -6,12 +6,12 @@
 #include <ostream>
 
 
+/// simulate dataclass which is gradually built using corresponding Builder
 class DataProfile
 {
-    private:
         friend class DataProfileBuilder;
-        friend std::ostream & operator << (std::ostream & os, const DataProfile & dp);
-
+        friend std::ostream& operator << (std::ostream &os, const DataProfile &dp);
+    private:
         std::string         _name;
         std::string         _surname;
         uint16_t            _birth_year;

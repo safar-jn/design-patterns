@@ -1,13 +1,13 @@
-#include <memory>
-#include <iostream>
-
 #include "src/DataProfile.h"
 #include "src/DataProfileBuilder.h"
+
+#include <memory>
+#include <iostream>
 
 
 int main(int argc, char **argv)
 {
-    // example of client code which uses Builder pattern
+    // example of client code that uses Builder pattern to gradually build DataProfile object
 
     DataProfileBuilder builder;
     std::shared_ptr<DataProfile> result;
@@ -22,7 +22,6 @@ int main(int argc, char **argv)
                 .construct();
 
     std::cout << *result;
-    std::cout << "---" << std::endl;
 
     result = builder
                 .reset()
