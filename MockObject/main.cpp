@@ -1,4 +1,5 @@
 #include <memory>
+#include <stdexcept>
 
 #include "src/Logger.h"
 #include "src/storage/Storage.h"
