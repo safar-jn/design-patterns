@@ -38,4 +38,6 @@ Dummy implementation of this [example/solution](src) and [how to use it](main.cp
 #### SUMMARY
 
 There aren't really any downsides to using commands besides code inflation which is easily outweigh by all of its
-capabilities.
+capabilities. As mentioned they can be used for postponing the execution process. Another hardly achievable functionality
+they excel at is implementing "undo/redo" operations. Bottom line, if you find yourself in situation where it makes
+sense to represent some actions as standalone objects, then by all means go for it.

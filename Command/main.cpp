@@ -1,29 +1,35 @@
-#include <memory>
-
 #include "src/Crawler.h"
 #include "src/commands/Command.h"
 #include "src/commands/ShallowScrapeCommand.h"
 #include "src/commands/DeepScrapeCommand.h"
 
+#include <queue>
+#include <memory>
 
-/// simulate triggering event when crawler is ready
-void onCrawlerReady (Command *cmd)
+
+void onCrawlerReady (std::shared_ptr<Command> cmd)
 {
+    // simulate triggering event when crawler is ready
     cmd->execute();
 }
 
 
 int main(int argc, char **argv)
 {
-    std::shared_ptr<Crawler> crawler = std::make_shared<Crawler>();
+    auto crawler = std::make_shared<Crawler>();
+    std::queue<std::shared_ptr<Command>> cmdQueue;
 
-    std::shared_ptr<Command> cmd_1 = std::make_shared<ShallowScrapeCommand>(crawler.get(), "website-1.com");
-    std::shared_ptr<Command> cmd_2 = std::make_shared<DeepScrapeCommand>(crawler.get(), "website-2.com", 1);
-    std::shared_ptr<Command> cmd_3 = std::make_shared<DeepScrapeCommand>(crawler.get(), "website-2.com", 99);
+    // simulate queueing few commands
+    cmdQueue.push(std::make_shared<ShallowScrapeCommand>(crawler, "website-1.com")); // command for shallow crawl
+    cmdQueue.push(std::make_shared<DeepScrapeCommand>(crawler, "website-2.com", 1)); // command for deep crawl
+    cmdQueue.push(std::make_shared<DeepScrapeCommand>(crawler, "website-2.com", 99)); // command for deep crawl
 
-    onCrawlerReady(cmd_1.get());
-    onCrawlerReady(cmd_2.get());
-    onCrawlerReady(cmd_3.get());
+    // simulate processing the queued commands
+    while (!cmdQueue.empty())
+    {
+        onCrawlerReady(cmdQueue.front());
+        cmdQueue.pop();
+    }
 
     return 0;
 }

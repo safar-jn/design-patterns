@@ -6,18 +6,21 @@
 #include "../Crawler.h"
 
 #include <string>
+#include <memory>
+#include <utility>
 #include <iostream>
 
 
+/// simulate concrete command - triggers deep scraping of given crawler
 class DeepScrapeCommand: public Command
 {
     public:
-             DeepScrapeCommand (Crawler *crawler, const std::string &website, uint8_t depth);
+             DeepScrapeCommand (std::shared_ptr<Crawler> crawler, std::string website, uint8_t depth);
         void execute           () override;
     private:
-        Crawler     *_crawler = nullptr;
-        std::string _website;
-        uint8_t     _depth;
+        std::shared_ptr<Crawler> _crawler {nullptr};
+        std::string              _website;
+        uint8_t                  _depth;
 };
 
 
