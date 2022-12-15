@@ -1,6 +1,7 @@
 #include "CacheHandler.h"
 
 
+// simulate cached results
 std::unordered_map<std::string, std::string> CacheHandler::_CACHED_RESULTS =
         {
             std::make_pair("CLIENT_ID_1", "RESULT_1"),
@@ -11,7 +12,8 @@ std::unordered_map<std::string, std::string> CacheHandler::_CACHED_RESULTS =
 
 std::string CacheHandler::handle (const std::string &request)
 {
-    /// simulate searching internal database for cached results
+    // simulate searching internal database for cached results
+    std::cout << "[CacheHandler] | searching cache" << std::endl;
 
     std::regex re(".*<clientID>(.*)</clientID>.*");
     std::smatch match;

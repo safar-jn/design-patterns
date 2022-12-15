@@ -5,9 +5,11 @@
 #include "BaseHandler.h"
 
 #include <regex>
+#include <iostream>
 #include <unordered_map>
 
 
+/// one of the concrete handlers in CoR - simulates searching for cached results for given request
 class CacheHandler: public BaseHandler
 {
     public:
