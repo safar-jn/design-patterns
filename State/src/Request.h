@@ -4,19 +4,21 @@
 
 #include "states/State.h"
 
-#include <memory>
+
+class State; // forward declaration
 
 
-class State;
+/// stateful object that modifies its behaviour based on the state its in
+///  - to be more precise the State object implements the different behaviours and this object just delegates
 class Request
 {
     public:
-             Request     ();
-            ~Request     ();
-        void changeState (State *state);
-        void process     ();
+                        Request     ();
+                       ~Request     ();
+        void            changeState (State *state);
+        void            process     ();
         // ...
-        State* getState  () const;
+        State* getState             () const;
     private:
         State *_state = nullptr;
 };

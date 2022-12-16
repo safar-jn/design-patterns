@@ -7,6 +7,7 @@
 #include <iostream>
 
 
+/// one of concrete states
 class CreatedState: public State
 {
     public:
