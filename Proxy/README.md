@@ -35,4 +35,5 @@ Dummy implementation of this [example/solution](src) and [how to use it](main.cp
 
 #### SUMMARY
 
-Only thing to lookout for is that heavy pre/post-processing in proxy object can cause performance drop.
+Only thing to lookout for is that heavy pre/post-processing in proxy object can cause performance drop. Other than that
+proxies are great for wide variety of things especially for modifying already existing pieces of code.

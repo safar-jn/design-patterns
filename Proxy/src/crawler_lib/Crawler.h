@@ -8,6 +8,7 @@
 #include <iostream>
 
 
+/// concrete implementation of original object (third-party Crawler)
 class Crawler: public CrawlerInterface
 {
     public:
