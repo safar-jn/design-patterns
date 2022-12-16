@@ -3,9 +3,10 @@
 #include <thread>
 
 
-void simulate_crawler_execution()
+void simulateCrawlerExecution()
 {
-    /// simulate web crawler saving individual websites it goes through to DWH
+    // simulate web crawler saving individual websites it goes through to DWH
+    //  - connection is established only when it's truly needed
     DWHConnection conn("localhost:8080", "admin", "1234");
 
     // simulate failed request (i.e. nothing to save) == conn won't be established (i.e. DummyConnector not initialized)
@@ -28,6 +29,6 @@ void simulate_crawler_execution()
 
 int main(int argc, char **argv)
 {
-    simulate_crawler_execution();
+    simulateCrawlerExecution();
 	return 0;
 }
