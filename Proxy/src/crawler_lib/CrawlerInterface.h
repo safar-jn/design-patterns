@@ -5,6 +5,7 @@
 #include <string>
 
 
+/// common interface for original objects (Crawlers) that we want to wrap with proxy object
 class CrawlerInterface
 {
     public:
