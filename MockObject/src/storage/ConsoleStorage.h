@@ -6,6 +6,7 @@
 #include <string>
 
 
+/// concrete implementation of some Storage - irrelevant for this example
 class ConsoleStorage: public Storage
 {
     public:

@@ -1,11 +1,14 @@
-#include <memory>
-#include <stdexcept>
-
 #include "src/Logger.h"
 #include "src/storage/Storage.h"
 
+#include <memory>
+#include <iostream>
+#include <stdexcept>
+
+
 /// MOCK OBJECT ========================================================================================================
 
+// simulates simple Storage for Loggers, so they can be unit tested without any side effects
 class MockStorage: public Storage
 {
     public:
@@ -22,6 +25,7 @@ class TestLogger
         {
             std::string expected = "[INFO] hey!";
 
+            // create Logger object which is under test with MockStorage
             auto mockStorage = std::make_shared<MockStorage>();
             auto logger = std::make_shared<Logger>(mockStorage);
 
@@ -29,19 +33,24 @@ class TestLogger
 
             if (mockStorage->_result != expected)
                 throw std::logic_error("test for Logger.info() failed");
+
+            std::cout << "[TestLogger] | test_info() passed successfully" << std::endl;
         }
 
         static void test_warn ()
         {
             std::string expected = "[WARN] hey!";
 
+            // create Logger object which is under test with MockStorage
             auto mockStorage = std::make_shared<MockStorage>();
             auto logger = std::make_shared<Logger>(mockStorage);
 
             logger->warn("hey!");
 
             if (mockStorage->_result != expected)
-                throw std::logic_error("test for Logger.info() failed");
+                throw std::logic_error("test for Logger.warn() failed");
+
+            std::cout << "[TestLogger] | test_warn() passed successfully" << std::endl;
         }
 };
 

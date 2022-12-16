@@ -7,6 +7,7 @@
 #include <fstream>
 
 
+/// concrete implementation of some Storage - irrelevant for this example
 class FileStorage: public Storage
 {
     public:
