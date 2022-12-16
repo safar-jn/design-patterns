@@ -3,7 +3,10 @@
 
 std::list<std::string> ScraperCore::scrapeClient (const std::string &clientName, const std::string &clientSurname)
 {
-    /// simulate the flow of scraping client's data
+    // simulate the flow of scraping client's data
+    // - most importantly delegate the actual work to slaves and splice together all the results
+
+    std::cout << "[ScraperCore] | accept request for [" << clientName << ", " << clientSurname << "]\n";
 
     std::list<std::string> tmpResults;
 
@@ -13,12 +16,14 @@ std::list<std::string> ScraperCore::scrapeClient (const std::string &clientName,
     scrapePersonalWebsite(clientName + clientSurname + ".com"); // in reality, we'd extract the website from scraped search engine results
     tmpResults.splice(tmpResults.end(), collectResults(clientName, clientSurname));
 
+    std::cout << "[ScraperCore] | finish request for [" << clientName << ", " << clientSurname << "]" << std::endl;
+
     return tmpResults;
 }
 
 void ScraperCore::scrapeSearchEngines (const std::string &clientName, const std::string &clientSurname)
 {
-    /// simulate running slaves for scraping search engines
+    // simulate running slaves for scraping search engines
 
     std::string clientID = clientName + clientSurname;
     auto it = _slaves.insert(std::pair<std::string, std::list<Crawler*>>(clientID, {}));
@@ -33,7 +38,7 @@ void ScraperCore::scrapeSearchEngines (const std::string &clientName, const std:
 
 void ScraperCore::scrapePersonalWebsite (const std::string &website)
 {
-    /// simulate running slaves for scraping personal website
+    // simulate running slaves for scraping personal website
 
     std::string clientID = website.substr(0, website.size() - 4);
     auto crawler = new Crawler;
@@ -44,7 +49,7 @@ void ScraperCore::scrapePersonalWebsite (const std::string &website)
 
 std::list<std::string> ScraperCore::collectResults (const std::string &clientName, const std::string &clientSurname)
 {
-    /// simulate collecting results from slaves
+    // simulate collecting results from slaves
 
     std::string clientID = clientName + clientSurname;
     std::list<std::string> results;

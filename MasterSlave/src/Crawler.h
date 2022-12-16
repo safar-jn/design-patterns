@@ -4,6 +4,7 @@
 
 #include <thread>
 #include <string>
+#include <iostream>
 
 
 /// SLAVE - does most of the actual heavy lifting
