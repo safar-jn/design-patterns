@@ -4,6 +4,8 @@
 
 class Crawler; // just a forward declaration - to avoid circular dependency
 
+
+/// common interface for all objects (Mediators) that mediate communication between some objects (Crawlers)
 class Mediator
 {
     public:

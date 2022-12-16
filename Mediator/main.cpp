@@ -5,6 +5,7 @@
 
 int main (int argc, char **argv)
 {
+    // setup mediator and individual objects (that communicate with each other through a mediator)
     GoogleCrawler googleCrawler;
     WebsiteCrawler websiteCrawler;
     ScrapingMediator sm(&googleCrawler, &websiteCrawler);

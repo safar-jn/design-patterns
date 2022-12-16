@@ -8,11 +8,12 @@
 #include <iostream>
 
 
+/// simulate concrete object (Crawler) that communicates with others via a mediator
 class WebsiteCrawler: public Crawler
 {
     public:
-        void setMediator    (Mediator *mediator) override;
-        void execute        (const std::string &url);
+        void execute (const std::string &url);
+        // ...
 };
 
 

@@ -1,20 +1,16 @@
 #include "GoogleCrawler.h"
 
 
-void GoogleCrawler::setMediator (Mediator *mediator)
-{
-    _meadiator = mediator;
-}
-
 void GoogleCrawler::execute (const std::string &searchQuery)
 {
-    /// simulate downloading google site
+    // simulate crawling through a Google
+
     std::cout << "[GoogleCrawler] | downloading 'google.com/search?q=" << searchQuery << "'" << std::endl;
-    _meadiator->mediate(this);
+    _meadiator->mediate(this); // notify mediator
 }
 
 std::string GoogleCrawler::extractWebsite () const
 {
-    /// simulate extracting website url from downloaded google search
+    // simulate extracting website url from crawled google search
     return "website-1.edu";
 }
