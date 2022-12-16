@@ -3,13 +3,15 @@
 
 
 #include <string>
+#include <utility>
 #include <iostream>
 
 
+/// simulate connection (i.e. connector) to DWH
 class DWHConnection
 {
     public:
-             DWHConnection  (const std::string &uri, const std::string &usr, const std::string &pwd);
+             DWHConnection  (std::string uri, std::string usr, std::string pwd);
         bool save           (const std::string &data);
     private:
         std::string _uri;

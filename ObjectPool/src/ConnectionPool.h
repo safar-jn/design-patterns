@@ -8,15 +8,17 @@
 #include <deque>
 #include <mutex>
 #include <memory>
+#include <iostream>
 
 
+/// Pool of connections that can be used to connect to DWH
 class ConnectionPool
 {
     public:
         static std::shared_ptr<ConnectionPool> getInstance();
 
         std::shared_ptr<DWHConnection>  acquire();
-        void                            release(const std::shared_ptr<DWHConnection>& conn);
+        void                            release(const std::shared_ptr<DWHConnection> &conn);
     private:
         ConnectionPool();
 

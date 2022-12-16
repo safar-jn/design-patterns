@@ -1,14 +1,14 @@
 #include "DWHConnection.h"
 
 
-DWHConnection::DWHConnection (const std::string &uri, const std::string &usr, const std::string &pwd):
-    _uri(uri), _usr(usr), _pwd(pwd)
+DWHConnection::DWHConnection (std::string uri, std::string usr, std::string pwd):
+    _uri(std::move(uri)), _usr(std::move(usr)), _pwd(std::move(pwd))
 {}
 
 bool DWHConnection::save (const std::string &data)
 {
-    /// simulate saving data to DWH
+    // simulate saving data to DWH
 
-    std::cout << "[" << _uri << "] | saving '" << data << "' to DWH" << std::endl;
+    std::cout << (" |- [DWHConnection] saving '" + data + "' to DWH via '" + _uri + "'\n");
     return true;
 }
