@@ -4,14 +4,18 @@
 
 #include "Variable.h"
 
+#include <string>
+#include <utility>
 
+
+/// concrete cloneable object
 class SimpleVariable: public Variable
 {
     public:
-                  SimpleVariable (const std::string &name, double value);
+                  SimpleVariable (std::string name, double value);
         void      print          () const override;
         // ...
-        Variable* clone          () const override;
+        Variable* clone          () const override; // override to return SimpleVariable type (== this)
     private:
         double _value;
 };
