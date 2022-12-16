@@ -4,26 +4,26 @@
 std::shared_ptr<DatabaseConnection> DatabaseConnection::_instance = nullptr;
 std::mutex DatabaseConnection::_mutex;
 
-DatabaseConnection::DatabaseConnection (const std::string &uri, const std::string &usr, const std::string &pwd):
-    _uri(uri), _usr(usr), _pwd(pwd)
+DatabaseConnection::DatabaseConnection (std::string uri, std::string usr, std::string pwd):
+    _uri(std::move(uri)), _usr(std::move(usr)), _pwd(std::move(pwd))
 {}
 
-std::shared_ptr<DatabaseConnection> DatabaseConnection::getInstance (const std::string &uri,
-                                                                     const std::string &usr,
-                                                                     const std::string &pwd)
+std::shared_ptr<DatabaseConnection> DatabaseConnection::getInstance (std::string uri, std::string usr, std::string pwd)
 {
+    // create new instance only if it doesn't exist yet, otherwise just return the existing one
+
     std::scoped_lock<std::mutex> lock(DatabaseConnection::_mutex);
 
     if (!_instance)
-        _instance.reset(new DatabaseConnection(uri, usr, pwd));
+        _instance.reset(new DatabaseConnection(std::move(uri), std::move(usr), std::move(pwd)));
 
     return _instance;
 }
 
-bool DatabaseConnection::execute (const std::string & query) const
+bool DatabaseConnection::execute (const std::string &query) const
 {
-    /// simulate executing database query
+    // simulate executing database query
 
-    std::cout << "[" << _uri << "] | executing '" << query << "'" << std::endl;
+    std::cout << " |- [DatabaseConnection] | " << _uri << " | executing '" << query << "'" << std::endl;
     return true;
 }
