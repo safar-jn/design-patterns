@@ -6,12 +6,12 @@
 #include <iostream>
 
 
+/// simulate some third-party connector (to DWH)
 class DummyConnector
 {
     public:
-        DummyConnector(const std::string &uri, const std::string &usr, const std::string &pwd);
-       ~DummyConnector();
-
+        DummyConnector (const std::string &uri, const std::string &usr, const std::string &pwd);
+       ~DummyConnector ();
        // ...
 };
 

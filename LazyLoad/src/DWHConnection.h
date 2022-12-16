@@ -6,13 +6,15 @@
 
 #include <memory>
 #include <string>
+#include <utility>
 #include <iostream>
 
 
+/// wrapper around the actual connector (DummyConnector) that provides the LazyInit functionality
 class DWHConnection
 {
     public:
-             DWHConnection (const std::string &uri, const std::string &usr, const std::string &pwd);
+             DWHConnection (std::string uri, std::string usr, std::string pwd);
         bool save          (const std::string &data);
     private:
         std::string _uri;
