@@ -9,6 +9,7 @@
 
 int main (int argc, char **argv)
 {
+    // simulate Kafka topic with few messages
     std::list<std::string> dummyTopic = {
             "req-1",
             "req-2",
@@ -16,6 +17,8 @@ int main (int argc, char **argv)
     };
 
     // ---
+
+    // setup observers/subscribers (Crawlers) and producer (KafkaConsumer - produces tasks for crawlers)
 
     FacebookCrawler fc;
     GoogleCrawler gc;
@@ -27,7 +30,7 @@ int main (int argc, char **argv)
     kafkaConsumer.registerSubscriber(&gc);
     kafkaConsumer.registerSubscriber(&trc);
 
-    kafkaConsumer.consumeTopic(dummyTopic);
+    kafkaConsumer.consumeTopic(dummyTopic); // simulate consuming topic
 
     return 0;
 }
