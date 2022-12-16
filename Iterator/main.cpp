@@ -17,8 +17,8 @@ int main (int argc, char **argv)
 
     // ...
 
-    // iterate over entries in data profile
-    for (const auto &it: dp)
+    // iterate over entries in data profile (using its Iterator)
+    for (const DataProfileIterator &it: dp) // same as "const auto &it"
     {
         std::cout << it.stringify() << std::endl;
     }

@@ -11,10 +11,10 @@ void DataProfile::insert (const std::string &section, const std::string &key, co
 
 DataProfileIterator DataProfile::begin ()
 {
-    return { _data.begin(), _data.begin()->second.begin(), --_data.end() };
+    return { _data.begin(), _data.begin()->second.begin(), --_data.end() }; // first element
 }
 
 DataProfileIterator DataProfile::end ()
 {
-    return { --_data.end(), (--_data.end())->second.end(), --_data.end() };
+    return { --_data.end(), (--_data.end())->second.end(), --_data.end() }; // last+1 element
 }
