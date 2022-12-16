@@ -8,6 +8,7 @@
 #include <iostream>
 
 
+/// one of concrete states
 class ExecutingState: public State
 {
     public:

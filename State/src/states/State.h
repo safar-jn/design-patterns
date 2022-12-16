@@ -5,15 +5,18 @@
 #include "../Request.h"
 
 
-class Request;
+class Request; // forward declaration
+
+
+/// common interfaces for all State objects
 class State
 {
     public:
         virtual     ~State      ();
                 void setRequest (Request *request);
-        virtual void execute    () = 0;
+        virtual void execute    () = 0; // for implementing different behaviours in subclasses
     protected:
-        Request *_request = nullptr;
+        Request *_request = nullptr; // reference to stateful object - so States can initiate state change by themselves
 };
 
 

@@ -4,6 +4,7 @@
 
 Request::Request ()
 {
+    // all new request start in CreatedState
     changeState(new CreatedState);
 }
 
@@ -21,10 +22,11 @@ void Request::changeState (State *state)
 
 void Request::process ()
 {
+    // delegate the actual work to State object (different behaviour based on type of State)
     _state->execute();
 }
 
-State *Request::getState () const
+State* Request::getState () const
 {
     return _state;
 }
