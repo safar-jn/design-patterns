@@ -3,17 +3,18 @@
 
 
 #include <string>
+#include <utility>
 #include <ostream>
 
 
+/// simulate share-able data (i.e. Flyweight object) - Crawlers with same config won't create new objects
 class Config
 {
-    public:
-        Config(uint16_t timeout, uint8_t retryCount,
-               const std::string &proxyHost, const std::string &proxyUser, const std::string &proxyPass);
-
         friend bool          operator== (const Config &lhs, const Config &rhs);
         friend std::ostream& operator<< (std::ostream &os, const Config &conf);
+    public:
+        Config(uint16_t timeout, uint8_t retryCount,
+               std::string proxyHost, std::string proxyUser, std::string proxyPass);
     private:
         uint16_t    _timeout;
         uint8_t     _retry_count;

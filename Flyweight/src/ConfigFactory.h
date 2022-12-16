@@ -2,12 +2,13 @@
 #define DESIGN_PATTERNS_CONFIGFACTORY_H
 
 
+#include "Config.h"
+
 #include <list>
 #include <algorithm>
 
-#include "Config.h"
 
-
+/// simulate factory that manages existing configurations
 class ConfigFactory
 {
     public:

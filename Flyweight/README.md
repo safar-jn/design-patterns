@@ -38,7 +38,13 @@ new dataclass which will be instantiated using the factory if needed be.
 
 Dummy implementation of this [example/solution](src) and [how to use it](main.cpp) is part of this directory.
 
+NOTE: this solution has one potential problem (very common with Flyweights as it's not directly addressed by the pattern) and 
+that is that there is a disconnect between lifecycles of Crawler and Configuration objects - what this means is that in
+its current form the ConfigFactory won't delete obsolete Configurations that aren't in use (this could cause memory issues)
+
 #### SUMMARY
 
 Using the **flyweight** should be done with caution as it usually trades memory for CPU cycles (i.e. speed) and makes
-the code harder to navigate/understand. 
+the code harder to navigate/understand. Even the aforementioned example isn't perfect as there will most likely 
+never be enough crawlers for it to make huge difference - this pattern should be used only if you have thousands or
+tens of thousands of objects with shared properties
