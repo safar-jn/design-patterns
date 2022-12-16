@@ -6,6 +6,8 @@
 #include <iterator>
 
 
+/// Iterator for DataProfile structure (follows C++ way of implementing iterators)
+///  - basically just simplifies going through map of maps within DataProfile
 class DataProfileIterator
 {
         typedef std::map<std::string, std::map<std::string, std::string>>::iterator SectionsIterator;
@@ -18,7 +20,7 @@ class DataProfileIterator
         bool                 operator== (const DataProfileIterator &rhs);
         bool                 operator!= (const DataProfileIterator &rhs);
         // ...
-        std::string          stringify  () const;
+        std::string          stringify  () const; // for visualizing current Iterator state
     private:
         SectionsIterator _current_section;
         EntriesIterator  _current_entry;
