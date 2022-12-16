@@ -1,7 +1,7 @@
 #include "Variable.h"
 
 
-Variable::Variable (const std::string &id): _id(id)
+Variable::Variable (std::string id): _id(std::move(id))
 {}
 
 Variable::~Variable ()

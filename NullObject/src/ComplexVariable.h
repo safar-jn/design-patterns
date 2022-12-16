@@ -10,6 +10,7 @@
 #include <iostream>
 
 
+/// concrete implementation of some real Variable
 class ComplexVariable: public Variable
 {
     public:
