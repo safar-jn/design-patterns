@@ -1,9 +1,8 @@
 #include "Config.h"
 
 
-Config::Config (uint16_t timeout, uint8_t retryCount,
-                const std::string &proxyHost, const std::string &proxyUser, const std::string &proxyPass):
-    _timeout(timeout), _retry_count(retryCount), _proxy_host(proxyHost), _proxy_user(proxyUser), _proxy_pass(proxyPass)
+Config::Config (uint16_t timeout, uint8_t retryCount, std::string proxyHost, std::string proxyUser, std::string proxyPass):
+    _timeout(timeout), _retry_count(retryCount), _proxy_host(std::move(proxyHost)), _proxy_user(std::move(proxyUser)), _proxy_pass(std::move(proxyPass))
 {}
 
 bool operator== (const Config &lhs, const Config &rhs)
