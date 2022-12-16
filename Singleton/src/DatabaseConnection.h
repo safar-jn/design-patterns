@@ -3,24 +3,24 @@
 
 
 #include <iostream>
+#include <utility>
 #include <memory>
 #include <mutex>
 
 
+/// Singleton - restricts existence of only one connection object at a time
 class DatabaseConnection
 {
     public:
-        static std::shared_ptr<DatabaseConnection> getInstance (const std::string &uri,
-                                                                const std::string &usr,
-                                                                const std::string &pwd);
-        bool execute (const std::string &query) const;
+        static std::shared_ptr<DatabaseConnection> getInstance (std::string uri, std::string usr, std::string pwd);
+               bool                                execute     (const std::string &query) const;
     private:
-        DatabaseConnection  (const std::string &uri, const std::string &usr, const std::string &pwd);
-        DatabaseConnection  (DatabaseConnection &other) = delete; // forbid cloning
-        void operator =     (const DatabaseConnection &) = delete; // forbid assigning
+        DatabaseConnection (std::string uri, std::string usr, std::string pwd); // privatize constructor
+        DatabaseConnection (DatabaseConnection &other) = delete; // forbid cloning
+        void operator =    (const DatabaseConnection &) = delete; // forbid assigning
 
-        static std::shared_ptr<DatabaseConnection> _instance;
-        static std::mutex _mutex;
+        static std::shared_ptr<DatabaseConnection> _instance; // only existing instance
+        static std::mutex                          _mutex;
 
         std::string _uri;
         std::string _usr;
