@@ -5,10 +5,11 @@
 #include "../Mediator.h"
 
 
+/// common interface for all objects (Crawlers) that communicate with each other through a mediator
 class Crawler
 {
     public:
-        virtual void setMediator (Mediator *mediator) = 0;
+        virtual void setMediator (Mediator *mediator);
     protected:
         Mediator *_meadiator = nullptr;
 };
