@@ -5,14 +5,14 @@
 #include <iostream>
 
 
-void cloneVariable (Variable *variable)
+void cloneVariable (const Variable &variable)
 {
-    /// simulate cloning variables
+    // simulate cloning variables
 
-    auto copy = variable->clone();
+    auto copy = variable.clone();
 
-    variable->print();
-    std::cout << " |- memAddr: " << variable << std::endl;
+    variable.print();
+    std::cout << " |- memAddr: " << &variable << std::endl;
 
     copy->print();
     std::cout << " |- memAddr: " << copy << std::endl;
@@ -23,14 +23,11 @@ void cloneVariable (Variable *variable)
 
 int main (int argc, char **argv)
 {
-    auto simple = new SimpleVariable("var_1", 3.14);
-    auto complex = new ComplexVariable("var_2", {1, 2, 3, 4});
+    SimpleVariable simpleVariable("var_1", 3.14);
+    ComplexVariable complexVariable("var_2", {1, 2, 3, 4});
 
-    cloneVariable(simple);
-    cloneVariable(complex);
-
-    delete simple;
-    delete complex;
+    cloneVariable(simpleVariable);
+    cloneVariable(complexVariable);
 
     return 0;
 }

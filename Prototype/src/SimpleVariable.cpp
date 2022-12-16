@@ -1,7 +1,7 @@
 #include "SimpleVariable.h"
 
 
-SimpleVariable::SimpleVariable (const std::string &name, double value): Variable(name), _value(value)
+SimpleVariable::SimpleVariable (std::string name, double value): Variable(std::move(name)), _value(value)
 {}
 
 void SimpleVariable::print () const

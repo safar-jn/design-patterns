@@ -1,8 +1,8 @@
 #include "ComplexVariable.h"
 
 
-ComplexVariable::ComplexVariable (const std::string &name, const std::vector<int> &value):
-    Variable(name), _value(value)
+ComplexVariable::ComplexVariable (std::string name, const std::vector<int> &value):
+    Variable(std::move(name)), _value(value)
 {}
 
 void ComplexVariable::print () const
