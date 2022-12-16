@@ -3,12 +3,13 @@
 
 void TradeRegisterCrawler::update (const std::string &request)
 {
-    _original_request = request;
+    // react on update from producer (KafkaConsumer)
+    _originalRequest = request;
     execute();
 }
 
 void TradeRegisterCrawler::execute () const
 {
-    /// simulate crawler execution
-    std::cout << "[TradeRegisterCrawler] | processing request '" << _original_request << "'" << std::endl;
+    // simulate crawler execution
+    std::cout << " |- [TradeRegisterCrawler] | processing request '" << _originalRequest << "'" << std::endl;
 }

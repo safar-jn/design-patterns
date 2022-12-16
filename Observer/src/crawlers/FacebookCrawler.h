@@ -8,13 +8,14 @@
 #include <iostream>
 
 
+/// concrete observer/subscriber - reacts on updates from producer in some way
 class FacebookCrawler: public Crawler
 {
     public:
         void update  (const std::string &request) override;
         void execute () const;
     private:
-        std::string _original_request;
+        std::string _originalRequest;
 };
 
 

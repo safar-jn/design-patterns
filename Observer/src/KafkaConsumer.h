@@ -10,6 +10,7 @@
 #include <iostream>
 
 
+/// producer - simulates consuming messages from Kafka topic and then notifies observers/subscribers (Crawlers)
 class KafkaConsumer
 {
     public:
