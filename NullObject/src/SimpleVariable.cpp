@@ -6,6 +6,6 @@ SimpleVariable::SimpleVariable (const std::string &id, double value): Variable(i
 
 double SimpleVariable::getValue () const
 {
-    std::cout << "using: [SimpleVariable] " << getId() << "=" << _value << std::endl;
+    std::cout << " |- [SimpleVariable] " << getId() << "=" << _value << std::endl;
     return _value;
 }

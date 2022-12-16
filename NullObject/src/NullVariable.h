@@ -7,6 +7,9 @@
 #include <iostream>
 
 
+/// concrete implementation of some "null" Variable
+///  - replaces non-existing values so we don't have to check for their existance
+///  - implements logically "null" behaviour (i.e. NOP)
 class NullVariable: public Variable
 {
     public:

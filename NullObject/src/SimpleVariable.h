@@ -8,6 +8,7 @@
 #include <iostream>
 
 
+/// concrete implementation of some real Variable
 class SimpleVariable: public Variable
 {
     public:

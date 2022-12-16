@@ -6,10 +6,11 @@ ComplexVariable::ComplexVariable (const std::string &id, const std::vector<int> 
 
 double ComplexVariable::getValue () const
 {
-    /// simulate returning avg value
+    // simulate returning avg value
+
     double avg = std::reduce(_values.begin(), _values.end()) / _values.size();
 
-    std::cout << "using: [ComplexVariable] " << getId() << "=" << avg << std::endl;
+    std::cout << " |- [ComplexVariable] " << getId() << "=" << avg << std::endl;
 
     return avg;
 }

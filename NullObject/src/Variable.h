@@ -3,12 +3,14 @@
 
 
 #include <string>
+#include <utility>
 
 
+/// common interface for all Variables
 class Variable
 {
     public:
-                            Variable (const std::string &id);
+                            Variable (std::string id);
         virtual            ~Variable ();
                 std::string getId    () const;
         virtual double      getValue () const = 0;
