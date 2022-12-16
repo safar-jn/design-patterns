@@ -7,6 +7,8 @@
 #include <string>
 
 
+/// simulate Logger object that we want to unittest
+///  - under the hood it logs to a certain Storage (that normally complicates unittesting 'cause of dependency)
 class Logger
 {
     public:

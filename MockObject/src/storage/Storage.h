@@ -4,6 +4,8 @@
 #include <string>
 
 
+/// common interface for all logger Storages
+///  - important so Mock Object knows what behaviour to mimic during unittesting
 class Storage
 {
     public:
