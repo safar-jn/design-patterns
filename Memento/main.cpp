@@ -1,10 +1,11 @@
-#include <iostream>
-
 #include "src/DataProfile.h"
+
+#include <iostream>
 
 
 int main (int argc, char **argv)
 {
+    // prep. data
     DataProfile dp;
 
     dp.insert("clientID", "name", "John");
@@ -14,19 +15,19 @@ int main (int argc, char **argv)
     dp.insert("website", "url", "website-1.com");
     dp.insert("website", "secured", "true");
 
-    std::cout << "---ORIGINAL---" << std::endl;
+    std::cout << "-----------ORIGINAL-----------" << std::endl;
     dp.print();
 
     // ...
 
-    DataProfile::Memento snapshot = dp.save();
+    DataProfile::Memento snapshot = dp.save(); // create snapshot
 
-    std::cout << "---NEW---" << std::endl;
+    std::cout << "--------------NEW--------------" << std::endl;
     dp.insert("bad_data", "foo", "bar");
     dp.print();
 
-    std::cout << "---RESTORED TO ORIGINAL---" << std::endl;
-    dp.restore(snapshot);
+    std::cout << "-----RESTORED TO ORIGINAL-----" << std::endl;
+    dp.restore(snapshot); // restore to original state using snapshot
     dp.print();
 
     return 0;

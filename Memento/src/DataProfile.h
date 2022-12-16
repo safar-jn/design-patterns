@@ -5,9 +5,12 @@
 #include <map>
 #include <iostream>
 
+
+/// simulate object that supports save/load of its state via Mementos
 class DataProfile
 {
     public:
+        /// encapsulated class for mementos (mimics attributes of the main class - DataProfile)
         class Memento
         {
                 friend class DataProfile;
@@ -16,11 +19,10 @@ class DataProfile
                 std::map<std::string, std::map<std::string, std::string>> _backup;
         };
 
-        Memento save () const;
-        void    restore (const Memento &memento);
+        Memento save    () const; // create snapshot of current state
+        void    restore (const Memento &memento); // load previously captured state
 
         // ...
-
         void insert (const std::string &section, const std::string &key, const std::string &value);
         void print  () const;
     private:
