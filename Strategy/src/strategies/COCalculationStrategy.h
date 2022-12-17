@@ -7,6 +7,7 @@
 #include <iostream>
 
 
+/// concrete implementation of one Strategy - in this case calculation algorithm for CO (corporate) clients
 class COCalculationStrategy: public CalculationStrategy
 {
     public:
