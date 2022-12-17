@@ -9,10 +9,11 @@
 #include <string>
 
 
+/// simulate concrete element (of DataProfile) that accepts visitors (Exporters)
 class DataProfileSection: public DataProfile
 {
     public:
-                                                      DataProfileSection  (const std::string &name);
+                                                      DataProfileSection  (std::string name);
         void                                          add                 (const std::shared_ptr<DataProfile>& child);
         void                                          rmv                 (const std::shared_ptr<DataProfile>& child);
         size_t                                        count               () const override;

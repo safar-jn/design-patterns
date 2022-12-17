@@ -5,6 +5,7 @@
 #include "DataProfile.h"
 
 
+/// simulate concrete element (of DataProfile) that accepts visitors (Exporters)
 class DataProfileRating: public DataProfile
 {
     public:

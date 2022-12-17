@@ -16,5 +16,6 @@ double DataProfileRating::getValue () const
 
 void DataProfileRating::accept (Exporter *exporter)
 {
+    // invoke functionality (i.e. export DataProfileRating) provided by corresponding visitor (i.e. exporter)
     exporter->visitDataProfile(this);
 }

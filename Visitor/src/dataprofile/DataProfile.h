@@ -7,6 +7,7 @@
 #include <cstdlib>
 
 
+/// common interface for all elements (DataProfile) that should accept visitors (Exporters)
 class DataProfile
 {
     public:
