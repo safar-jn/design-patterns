@@ -3,19 +3,23 @@
 #include "src/COCalculation.h"
 
 #include <string>
+#include <memory>
 #include <iostream>
 #include <unordered_map>
 
 
-void run_calculation (const std::string &clientType, const std::unordered_map<std::string, double> &data)
+void runCalculation (const std::string &clientType, const std::unordered_map<std::string, double> &data)
 {
-    /// simulate triggering calculation algorithm based on client's type
+    // simulate triggering different calculation algorithm based on client's type
 
-    Calculation *calc = clientType == "PR" ? (Calculation*)new PRCalculation : (Calculation*)new COCalculation;
+    std::shared_ptr<Calculation> calc {nullptr};
+
+    if (clientType == "PR")
+        calc = std::make_shared<PRCalculation>();
+    else
+        calc = std::make_shared<COCalculation>();
+
     double result = calc->execute(data);
-
-    delete calc;
-
     std::cout << " |- result=" << result << std::endl;
 }
 
@@ -35,8 +39,8 @@ int main (int argc, char **argv)
 
     // ---
 
-    run_calculation("PR", dummyData);
-    run_calculation("CO", dummyData);
+    runCalculation("PR", dummyData);
+    runCalculation("CO", dummyData);
 
     return 0;
 }

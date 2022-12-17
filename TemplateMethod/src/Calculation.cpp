@@ -3,7 +3,7 @@
 
 double Calculation::execute (const std::unordered_map<std::string, double> &data)
 {
-    /// define overall structure of the calc algorithm (it's important for this method to not be virtual)
+    // define overall structure of the calc algorithm (it's important for this method to not be virtual)
 
     std::cout << "[Calculation] | executing algorithm..." << std::endl;
 
@@ -20,7 +20,7 @@ double Calculation::execute (const std::unordered_map<std::string, double> &data
 
 void Calculation::filter (const std::unordered_map<std::string, double> &data, std::vector<double> &result)
 {
-    /// define default filtering step of the algorithm (== do nothing)
+    // define default filtering step of the algorithm (== do nothing)
 
     std::cout << " |- [Calculation] filtering step" << std::endl;
 
@@ -30,16 +30,15 @@ void Calculation::filter (const std::unordered_map<std::string, double> &data, s
 
 void Calculation::bin (std::vector<double> &filteredData)
 {
-    /// define default binning step of the algorithm (== do nothing)
+    // define default binning step of the algorithm (== do nothing)
 
-    std::cout << " |- [Calculation] binning step" << std::endl;
+    std::cout << " |- [Calculation] binning step (NOP)" << std::endl;
 }
 
 double Calculation::scale (double result)
 {
-    /// define default scaling step of the algorithm (== do nothing)
+    // define default scaling step of the algorithm (== do nothing)
 
-    std::cout << " |- [Calculation] scaling step" << std::endl;
-
+    std::cout << " |- [Calculation] scaling step (NOP)" << std::endl;
     return result;
 }

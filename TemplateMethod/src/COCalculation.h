@@ -7,6 +7,7 @@
 #include <iostream>
 
 
+/// extension of base Calculation - complex algorithm for CO (corporate) clients
 class COCalculation: public Calculation
 {
     public:
