@@ -1,27 +1,27 @@
 #include "Logger.h"
 
 
-void Logger::config (const std::string &infoPrefix, const std::string &warnPrefix, const std::string &errPrefix)
+void Logger::config (std::string infoPrefix, std::string warnPrefix, std::string errPrefix)
 {
     // simulate some logger configuration
-    _info_prefix = infoPrefix;
-    _warn_prefix = warnPrefix;
-    _err_prefix = errPrefix;
+    _infoPrefix = std::move(infoPrefix);
+    _warnPrefix = std::move(warnPrefix);
+    _errPrefix = std::move(errPrefix);
 }
 
 void Logger::info (const std::string &msg)
 {
-    Buffer::INSTANCE.insert(_info_prefix + msg);
+    Buffer::INSTANCE.insert(_infoPrefix + msg);
 }
 
 void Logger::warn (const std::string &msg)
 {
-    Buffer::INSTANCE.insert(_warn_prefix + msg);
+    Buffer::INSTANCE.insert(_warnPrefix + msg);
 }
 
 void Logger::err (const std::string &msg)
 {
-    Buffer::INSTANCE.insert(_err_prefix + msg);
+    Buffer::INSTANCE.insert(_errPrefix + msg);
 }
 
 std::string Logger::dump ()

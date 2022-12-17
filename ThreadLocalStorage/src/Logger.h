@@ -4,22 +4,24 @@
 
 #include "Buffer.h"
 
+#include <utility>
 #include <iostream>
 
 
+/// object that uses TLS - in this case "global" buffer for low-overhead logging messages
 class Logger
 {
     public:
-        void config (const std::string &infoPrefix, const std::string &warnPrefix, const std::string &errPrefix);
+        void config (std::string infoPrefix, std::string warnPrefix, std::string errPrefix);
         void info   (const std::string &msg);
         void warn   (const std::string &msg);
         void err    (const std::string &msg);
         // ...
         std::string dump ();
     private:
-        std::string _info_prefix;
-        std::string _warn_prefix;
-        std::string _err_prefix;
+        std::string _infoPrefix;
+        std::string _warnPrefix;
+        std::string _errPrefix;
 };
 
 

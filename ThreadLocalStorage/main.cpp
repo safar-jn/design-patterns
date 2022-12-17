@@ -9,7 +9,7 @@ Logger logger; // static global logger (but with TLS buffer)
 
 void thrFunc (int id)
 {
-    /// simulate some logging in different thread with dumping the logs at the end
+    // simulate some logging in different thread with dumping the logs at the end
 
     for (int i = 0; i < (rand() % 10); i++)
     {
