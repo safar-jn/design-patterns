@@ -8,6 +8,7 @@
 #include <iostream>
 
 
+/// concrete implementation of one Strategy - in this case calculation algorithm for PR (private) clients
 class PRCalculationStrategy: public CalculationStrategy
 {
     public:

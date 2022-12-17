@@ -5,17 +5,20 @@
 #include "strategies/CalculationStrategy.h"
 
 #include <vector>
+#include <memory>
+#include <utility>
 #include <iostream>
 
 
+/// object that encapsulates used strategies (i.e. algorithms)
 class ModelerCore
 {
     public:
-        void setStrategy (CalculationStrategy *strategy);
+        void setStrategy (std::shared_ptr<CalculationStrategy> strategy);
         void model       (const std::vector<double> &data) const;
         // ...
     private:
-        CalculationStrategy *_strategy = nullptr;
+        std::shared_ptr<CalculationStrategy> _strategy {nullptr};
 };
 
 

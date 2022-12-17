@@ -4,21 +4,21 @@
 #include "src/strategies/COCalculationStrategy.h"
 
 #include <vector>
+#include <memory>
 
 
-void run_core (ModelerCore &core, const std::string &clientType, const std::vector<double> &data)
+void runCore (ModelerCore &core, const std::string &clientType, const std::vector<double> &data)
 {
-    CalculationStrategy *strategy = nullptr;
+    std::shared_ptr<CalculationStrategy> strategy {nullptr};
 
+    // based on client type choose corresponding strategy (i.e. algorithm)
     if (clientType == "PR")
-        strategy = new PRCalculationStrategy;
+        strategy = std::make_shared<PRCalculationStrategy>();
     else
-        strategy = new COCalculationStrategy(3.14);
+        strategy = std::make_shared<COCalculationStrategy>(3.14);
 
     core.setStrategy(strategy);
     core.model(data);
-
-    delete strategy;
 }
 
 
@@ -30,11 +30,11 @@ int main (int argc, char **argv)
 
     ModelerCore core;
 
-    /// core triggers some simple calculation for private clients (PR)
-    run_core(core, "PR", dummyData);
+    // core triggers some simple calculation for private clients (PR)
+    runCore(core, "PR", dummyData);
 
-    /// core triggers some complex calculation for corporate clients (CO)
-    run_core(core, "CO", dummyData);
+    // core triggers some complex calculation for corporate clients (CO)
+    runCore(core, "CO", dummyData);
 
     return 0;
 }

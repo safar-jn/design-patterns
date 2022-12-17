@@ -6,7 +6,7 @@ COCalculationStrategy::COCalculationStrategy (double factor): _factor(factor)
 
 double COCalculationStrategy::calculate (const std::vector<double> &data)
 {
-    /// simulate some complex calculation for corporate clients (CO)
+    // simulate some complex calculation for corporate clients (CO)
     std::cout << "[ComplexStrategy] | calculating..." << std::endl;
 
     double res = 0.0;
