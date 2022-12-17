@@ -7,7 +7,7 @@
 #include <numeric>
 
 
-/// simple algorithm for PR clients
+/// extension of base Calculation - simple algorithm for PR (private) clients
 class PRCalculation: public Calculation
 {
     public:

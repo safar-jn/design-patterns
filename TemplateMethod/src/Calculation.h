@@ -3,16 +3,15 @@
 
 
 #include <vector>
-#include <unordered_map>
 #include <iostream>
+#include <unordered_map>
 
 
+/// parent class for all Calculation algorithms - defines the skeleton (i.e. individual steps) for all Calculation objects
 class Calculation
 {
     public:
-        virtual      ~Calculation () = default;
-        // ...
-                double execute    (const std::unordered_map<std::string, double> &data);
+                double execute    (const std::unordered_map<std::string, double> &data); // template method
         // ...
         virtual void   filter     (const std::unordered_map<std::string, double> &data, std::vector<double> &result);
         virtual void   bin        (std::vector<double> &filteredData);

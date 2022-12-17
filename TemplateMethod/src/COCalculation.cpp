@@ -3,7 +3,7 @@
 
 void COCalculation::filter (const std::unordered_map<std::string, double> &data, std::vector<double> &result)
 {
-    /// simulate some filtering
+    // simulate some filtering
 
     std::cout << " |- [COCalculation] filtering step" << std::endl;
 
@@ -16,7 +16,7 @@ void COCalculation::filter (const std::unordered_map<std::string, double> &data,
 
 double COCalculation::calculate (const std::vector<double> &binnedData)
 {
-    /// simulate some calculation
+    // simulate some calculation
 
     std::cout << " |- [COCalculation] calculating step" << std::endl;
 
@@ -35,9 +35,8 @@ double COCalculation::calculate (const std::vector<double> &binnedData)
 
 double COCalculation::scale (double result)
 {
-    /// simulate some scaling
+    // simulate some scaling
 
     std::cout << " |- [COCalculation] scaling step" << std::endl;
-
     return result * 0.81;
 }
