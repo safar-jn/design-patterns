@@ -6,6 +6,8 @@
 #include <string>
 
 
+/// buffer for logging messages - acts as a TLS (global access, but thread-specific memory)
+///  - uses C++ way of defining TLS (i.e. "thread_local" keyword)
 class Buffer
 {
     public:
