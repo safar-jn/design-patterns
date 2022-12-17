@@ -7,6 +7,7 @@
 #include <iostream>
 
 
+/// concrete visitor (i.e. Exporter) that implements visiting methods (in this case creating XML export)
 class XMLExporter: public Exporter
 {
     public:

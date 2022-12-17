@@ -6,11 +6,16 @@
 #include <iostream>
 
 
-void simulateExport (const std::shared_ptr<DataProfile> &dp, const std::shared_ptr<Exporter> &exporter)
+void simulateExport (DataProfile *dp, Exporter &exporter)
 {
+    // simulate using exporter (in this case XML exporter) to generate DataProfile export (in this case in XML)
+
+    std::cout << "[main] | triggering exporter to generate export\n" << std::endl;
+
+    dp->accept(&exporter);
     // ...
-    dp->accept(exporter.get());
-    // ...
+
+    std::cout << std::endl;
 }
 
 
@@ -27,8 +32,11 @@ int main (int argc, char **argv)
     dp->add(dpID);
     dp->add(dpRatings);
 
-    auto XMLexporter = std::make_shared<XMLExporter>();
-    simulateExport(dp, XMLexporter);
+    // ---
+
+    // simulate visitor (i.e. Exporter) usage
+    XMLExporter xmlExporter;
+    simulateExport(dp.get(), xmlExporter);
 
     return 0;
 }

@@ -1,8 +1,8 @@
 #include "DataProfileID.h"
 
 
-DataProfileID::DataProfileID (const std::string &name, const std::string &surname, const std::string &rc):
-        _name(name), _surname(surname), _rc(rc)
+DataProfileID::DataProfileID (std::string name, std::string surname, std::string rc):
+        _name(std::move(name)), _surname(std::move(surname)), _rc(std::move(rc))
 {}
 
 size_t DataProfileID::count () const
@@ -25,8 +25,8 @@ const std::string &DataProfileID::getRc () const
     return _rc;
 }
 
-
 void DataProfileID::accept (Exporter *exporter)
 {
+    // invoke functionality (i.e. export DataProfileID) provided by corresponding visitor (i.e. exporter)
     exporter->visitDataProfile(this);
 }

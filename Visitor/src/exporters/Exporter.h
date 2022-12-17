@@ -7,6 +7,9 @@ class DataProfileSection;
 class DataProfileID;
 class DataProfileRating;
 
+
+/// common interface for all visitors (i.e. Exporters) - prescribes methods for visiting indiv. elements
+///  - different formats will require just implementing new exporters (no need to modify existing code of DataProfile elements)
 class Exporter
 {
     public:

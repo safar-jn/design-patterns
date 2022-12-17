@@ -5,12 +5,14 @@
 #include "DataProfile.h"
 
 #include <string>
+#include <utility>
 
 
+/// simulate concrete element (of DataProfile) that accepts visitors (Exporters)
 class DataProfileID: public DataProfile
 {
     public:
-                            DataProfileID (const std::string &name, const std::string &surname, const std::string &rc);
+                            DataProfileID (std::string name, std::string surname, std::string rc);
         size_t              count         () const override;
         const std::string&  getName       () const;
         const std::string&  getSurname    () const;

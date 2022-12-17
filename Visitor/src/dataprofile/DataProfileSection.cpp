@@ -1,7 +1,7 @@
 #include "DataProfileSection.h"
 
 
-DataProfileSection::DataProfileSection (const std::string &name): _name(name)
+DataProfileSection::DataProfileSection (std::string name): _name(std::move(name))
 {}
 
 void DataProfileSection::add (const std::shared_ptr<DataProfile>& child)
@@ -36,5 +36,6 @@ const std::set<std::shared_ptr<DataProfile>> &DataProfileSection::getChildren ()
 
 void DataProfileSection::accept (Exporter *exporter)
 {
+    // invoke functionality (i.e. export DataProfileSection) provided by corresponding visitor (i.e. exporter)
     exporter->visitDataProfile(this);
 }
